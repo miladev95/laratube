@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\VideoUploaded;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class VideoController extends Controller
@@ -13,6 +15,7 @@ class VideoController extends Controller
 
     public function store(Request $request)
     {
+        event(new VideoUploaded(new Video(['title' => 'hello user'])));
         if ($request->hasFile('video')) {
             $video = $request->file('video');
             $path = $video->store('videos', 'public');
