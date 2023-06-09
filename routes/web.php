@@ -19,8 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/upload',[VideoController::class,'store']);
 Route::get('/upload',[VideoController::class,'upload']);
+Route::get('/videos',[VideoController::class,'videos']);
 
 Route::get('/signup',[AuthController::class,'signup']);
 Route::get('/signin',[AuthController::class,'signin']);

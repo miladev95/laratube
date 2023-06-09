@@ -15,4 +15,9 @@ class Video extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function getSrcAttribute($value)
+    {
+        return env('VIDEO_FULL_PREFIX') . $value;
+    }
 }

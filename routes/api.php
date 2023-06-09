@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
-use App\Http\Controllers\Api\VideoController;
+use App\Http\Controllers\API\VideoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::group(['prefix' => 'video'],function () {
+    Route::post('/upload',[VideoController::class,'store'])->name('api.video.upload');
+});
 Route::post('/signup',[AuthController::class,'signup'])->name('api.signup');
 Route::post('/signin',[AuthController::class,'signin'])->name('api.signin');
