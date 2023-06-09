@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,5 @@ Route::get('/', function () {
 
 Route::post('/upload',[VideoController::class,'store']);
 Route::get('/upload',[VideoController::class,'upload']);
+
+Route::get('/signup',[AuthController::class,'signup']);
