@@ -3,29 +3,18 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SigninRequest;
+use App\Http\Requests\SignupRerquest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
-
-use Laravel\Passport\ClientRepository;
 
 class AuthController extends Controller
 {
-    public function signup(Request $request)
+    public function signup(SignupRerquest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:3',
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()], 400);
-        }
-
         $user = User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
@@ -40,7 +29,7 @@ class AuthController extends Controller
         ]);
     }
 
-    public function signin(Request $request)
+    public function signin(SigninRequest $request)
     {
         $credentials = $request->only('email','password');
 
