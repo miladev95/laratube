@@ -22,7 +22,8 @@ class LogVideos
      */
     public function handle(VideoUploaded $event): void
     {
-        $log = new Log([
+        ;
+        $log = Log::create([
             'title' => $event->video->title,
             'data' => 'video uploaded',
         ]);

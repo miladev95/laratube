@@ -10,4 +10,9 @@ class AuthController extends Controller
     {
         return view('signup');
     }
+
+    public function signin()
+    {
+        return view('signin');
+    }
 }
