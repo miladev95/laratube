@@ -25,24 +25,34 @@
         </ul>
     </div>
 @endif
-<div class="container">
-    <h1>Video Upload</h1>
-    <form action="{{route('video.upload')}}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <div class="form-group">
-            <label for="video">Video</label>
-            <input type="file" class="form-control-file" id="video" name="video">
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Upload
+                </div>
+                <div class="card-body">
+                    <form action="{{route('video.upload')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <label for="video">Video</label>
+                            <input type="file" class="form-control-file" id="video" name="video">
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control" id="title" name="title">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" name="title">
-        </div>
-        <div class="form-group">
-            <label for="description">Description</label>
-            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Upload</button>
-    </form>
+    </div>
 </div>
 </body>
 </html>
