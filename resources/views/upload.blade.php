@@ -5,9 +5,30 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="container">
     <h1>Video Upload</h1>
-    <form action="{{route('api.video.upload')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('video.upload')}}" method="POST" enctype="multipart/form-data">
+        @csrf
         <div class="form-group">
             <label for="video">Video</label>
             <input type="file" class="form-control-file" id="video" name="video">

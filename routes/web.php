@@ -20,7 +20,9 @@ Route::get('/', function () {
 });
 
 Route::get('/upload',[VideoController::class,'upload']);
-Route::get('/videos',[VideoController::class,'videos']);
-
+Route::get('/videos',[VideoController::class,'videos'])->name('videos');
+Route::group(['prefix' => 'video'],function () {
+    Route::post('/upload',[VideoController::class,'store'])->name('video.upload');
+});
 Route::get('/signup',[AuthController::class,'signup']);
 Route::get('/signin',[AuthController::class,'signin']);

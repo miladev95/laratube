@@ -20,8 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['prefix' => 'video'],function () {
-    Route::post('/upload',[VideoController::class,'store'])->name('api.video.upload');
-});
+
 Route::post('/signup',[AuthController::class,'signup'])->name('api.signup');
 Route::post('/signin',[AuthController::class,'signin'])->name('api.signin');
