@@ -74,7 +74,6 @@ class VideoController extends Controller
 
     public function view(Video $video)
     {
-
         $video->incrementViews();
 
         $video->save();
