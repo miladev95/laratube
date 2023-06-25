@@ -21,12 +21,14 @@ class VideoController extends Controller
             event(new VideoUploaded(new Video(['title' => $request->title])));
             $video = $request->file('video');
             $path = $video->store('videos', 'public');
-            Video::create([
-                'title' => $request->title,
-                'description' => $request->description,
-                'src' => $path,
-                'user_id' => 1,
-            ]);
+
+            $video = new Video();
+            $video->title = $request->title;
+            $video->description = $request->description;
+            $video->src = $path;
+
+            $user = Auth::user();
+            $user->videos()->save($video);
 
             return redirect()->route('videos')->with('success' , 'Video uploaded successfully');
         } else {
