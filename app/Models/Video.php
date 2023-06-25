@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Video extends Model
 {
     use HasFactory;
+
     protected $primaryKey = 'id';
     public $incrementing = false;
     protected $keyType = 'string';
@@ -16,13 +17,24 @@ class Video extends Model
     public const status = [
         'PENDING',
         'APPROVED',
-        'FAILED',
+        'REJECTED',
         'DELETED',
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getStatusAttribute($value)
+    {
+        $result = match ($value) {
+            'PENDING' => 'Pending',
+            'APPROVED' => 'Active',
+            'FAILED' => 'Rejected',
+            'DELETED' => 'Deleted',
+        };
+        return $result;
     }
 
     public function getSrcAttribute($value)

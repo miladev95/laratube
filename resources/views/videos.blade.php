@@ -14,10 +14,11 @@
             @forelse($videos as $video)
                 <div class="row mt-2">
                     <div class="col-md-6">
-                        <h4>{{$video->title}}</h4>
-                        <p>{{$video->description}}</p>
-                        <p>{{$video->src}}</p>
-                        <p>{{$video->view}}</p>
+                        <h4>Title: {{$video->title}}</h4>
+                        <p>Description: {{$video->description}}</p>
+                        <p>Source: {{$video->src}}</p>
+                        <p>Views: {{$video->view}}</p>
+                        <p>Status: {{$video->status}}</p>
                     </div>
                     <div class="col-md-6">
                         <iframe width="100%" height="auto" src="{{$video->src}}" frameborder="0"
