@@ -14,5 +14,11 @@
                 <li class="list-group-item">{{$title }} => {{ $route }}</li>
             @endforeach
         </ul>
+
+        @auth
+            <p>Welcome, {{ Auth::user()->name }}</p>
+        @else
+            <p>Please login to access this page.</p>
+        @endauth
     </div>
 @endsection
