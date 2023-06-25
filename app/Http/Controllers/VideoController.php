@@ -16,6 +16,11 @@ class VideoController extends Controller
         return view('upload');
     }
 
+    public function edit(Video $video)
+    {
+        return view('edit',compact('video'));
+    }
+
     public function store(StoreVideoRequest $request)
     {
         if ($request->hasFile('video')) {
@@ -37,9 +42,18 @@ class VideoController extends Controller
         }
     }
 
+    public function update(Request $request, Video $video)
+    {
+        $this->authorize('update',$video);
+
+        $video->update($request->all());
+        return back();
+    }
+
     public function remove(Video $video)
     {
         $this->authorize('remove', $video);
+
         Storage::disk('public')->delete($video->src);
         $video->delete();
         return back();
@@ -50,6 +64,4 @@ class VideoController extends Controller
         $videos = Video::where('user_id', Auth::user()->id)->get();
         return view('videos', compact('videos'));
     }
-
-
 }
