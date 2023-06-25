@@ -48,7 +48,6 @@ class VideoController extends Controller
 
         $video->title = $request->input('title');
         $video->description = $request->input('description');
-
         $video->save();
 
         return redirect()->route('videos');

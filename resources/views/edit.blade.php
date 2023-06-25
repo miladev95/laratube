@@ -32,16 +32,6 @@
                 @csrf
                 @method('PUT')
                 <div class="form-group">
-                    <label for="video">Video</label>
-                    <input type="file" class="form-control-file" id="video"  name="video">
-                </div>
-                <div class="form-group">
-                    <div class="col-md-6">
-                        <iframe width="100%" height="auto" src="{{$video->src}}" frameborder="0"
-                                allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="form-group">
                     <label for="title">Title</label>
                     <input type="text" class="form-control" id="title" name="title" value="{{$video->title}}">
                 </div>
