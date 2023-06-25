@@ -28,7 +28,7 @@
             <h2>Video Update</h2>
         </div>
         <div class="card-body">
-            <form action="{{route('video.update')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('video.update' , ['video' => $video])}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="form-group">

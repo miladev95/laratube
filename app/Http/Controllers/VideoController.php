@@ -18,7 +18,7 @@ class VideoController extends Controller
 
     public function edit(Video $video)
     {
-        return view('edit',compact('video'));
+        return view('edit', compact('video'));
     }
 
     public function store(StoreVideoRequest $request)
@@ -42,12 +42,16 @@ class VideoController extends Controller
         }
     }
 
-    public function update(Request $request, Video $video)
+    public function update(Video $video, Request $request)
     {
-        $this->authorize('update',$video);
+        $this->authorize('update', $video);
 
-        $video->update($request->all());
-        return back();
+        $video->title = $request->input('title');
+        $video->description = $request->input('description');
+
+        $video->save();
+
+        return redirect()->route('videos');
     }
 
     public function remove(Video $video)

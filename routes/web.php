@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
 
     // edit video
     Route::get('edit/{video}', [VideoController::class, 'edit'])->name('edit');
-    Route::put('update',[VideoController::class,'update'])->name('video.update');
+    Route::put('update/{video}',[VideoController::class,'update'])->name('video.update');
 
 
     Route::get('/videos', [VideoController::class, 'videos'])->name('videos');
