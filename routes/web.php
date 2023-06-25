@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/upload', [VideoController::class, 'upload']);
+Route::get('/upload', [VideoController::class, 'upload'])->name('upload');
 Route::get('/videos', [VideoController::class, 'videos'])->name('videos');
 Route::group(['prefix' => 'video'], function () {
     Route::post('/upload', [VideoController::class, 'store'])->name('video.upload');
