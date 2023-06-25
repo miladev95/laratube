@@ -6,7 +6,7 @@
 @section('content')
     <div class="card mt-4">
         <div class="card-header d-flex justify-content-between">
-            <h2>Videos</h2>
+            <h2>{{count($videos)}} Videos</h2>
             <a href="{{ route('upload') }}" class="btn btn-primary">New</a>
 
         </div>
