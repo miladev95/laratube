@@ -8,6 +8,7 @@ use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Ramsey\Uuid\Uuid;
 
 class VideoController extends Controller
 {
@@ -29,6 +30,7 @@ class VideoController extends Controller
             $path = $video->store('videos', 'public');
 
             $video = new Video();
+            $video->id = Uuid::uuid4()->toString();
             $video->title = $request->title;
             $video->description = $request->description;
             $video->src = $path;
@@ -46,8 +48,10 @@ class VideoController extends Controller
     {
         $this->authorize('update', $video);
 
+
         $video->title = $request->input('title');
         $video->description = $request->input('description');
+
         $video->save();
 
         return redirect()->route('videos');
@@ -66,5 +70,15 @@ class VideoController extends Controller
     {
         $videos = Video::where('user_id', Auth::user()->id)->get();
         return view('videos', compact('videos'));
+    }
+
+    public function view(Video $video)
+    {
+
+        $video->incrementViews();
+
+        $video->save();
+
+        return view('view', compact('video'));
     }
 }

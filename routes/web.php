@@ -41,6 +41,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('remove/{video}',[VideoController::class,'remove'])->name('remove');
 
+    Route::get('view/{video}',[VideoController::class,'view'])->name('view');
+
 });
 
 Route::get('help', [HelpController::class, 'show'])->name('route.help')->middleware('auth');
