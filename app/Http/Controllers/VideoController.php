@@ -33,6 +33,7 @@ class VideoController extends Controller
             $video->id = Uuid::uuid4()->toString();
             $video->title = $request->title;
             $video->description = $request->description;
+            $video->status = Video::status[0];
             $video->src = $path;
 
             $user = Auth::user();
@@ -50,6 +51,7 @@ class VideoController extends Controller
 
 
         $video->title = $request->input('title');
+        $video->status = Video::status[0];
         $video->description = $request->input('description');
 
         $video->save();

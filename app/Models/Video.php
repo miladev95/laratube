@@ -13,6 +13,13 @@ class Video extends Model
     protected $keyType = 'string';
     protected $guarded = [];
 
+    public const status = [
+        'PENDING',
+        'APPROVED',
+        'FAILED',
+        'DELETED',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

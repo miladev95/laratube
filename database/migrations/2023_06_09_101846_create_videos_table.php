@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Video;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,6 +17,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('src');
+            $table->enum('status' , Video::status);
+            $table->string('delete_reason')->nullable();
             $table->unsignedBigInteger('view')->default(0);
 
             $table->unsignedBigInteger('user_id');

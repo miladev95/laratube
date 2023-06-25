@@ -19,4 +19,23 @@ class User extends Authenticatable
         return $this->hasMany(Video::class);
     }
 
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function assignRole($role)
+    {
+        $this->roles()->attach($role);
+    }
+
+    public function removeRole($role)
+    {
+        $this->roles()->detach($role);
+    }
+
+    public function hasRole($role)
+    {
+        return $this->roles->contains('name', $role);
+    }
 }
