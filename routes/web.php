@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HelpController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,9 @@ Route::middleware('auth')->group(function () {
     Route::get('remove/{video}',[VideoController::class,'remove'])->name('remove');
 
     Route::get('view/{video}',[VideoController::class,'view'])->name('view');
+
+    Route::get('profile',[UserController::class,'show'])->name('profile');
+    Route::post('profile/update',[UserController::class,'update'])->name('profile.update');
 
 });
 
