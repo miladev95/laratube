@@ -12,10 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('videos', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('title');
             $table->string('description');
             $table->string('src');
+            $table->unsignedBigInteger('view')->default(0);
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
