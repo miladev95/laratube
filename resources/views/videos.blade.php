@@ -21,7 +21,7 @@
                         <iframe width="100%" height="auto" src="{{$video->src}}" frameborder="0"
                                 allowfullscreen></iframe>
                     </div>
-                    <a href="{{ route('remove',['video' => $video]) }}" class="btn btn-primary mt-2">Remove</a>
+                    <a href="{{ route('remove',['video' => $video]) }}" class="btn btn-primary mt-2"  onclick="return confirm('Are you sure you want to remove this video?')">Remove</a>
                 </div>
             @empty
                 <p class="text-muted p-3 text-center fs-5">No videos found.</p>
