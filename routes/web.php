@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HelpController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,10 +20,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/upload',[VideoController::class,'upload']);
-Route::get('/videos',[VideoController::class,'videos'])->name('videos');
-Route::group(['prefix' => 'video'],function () {
-    Route::post('/upload',[VideoController::class,'store'])->name('video.upload');
+Route::get('/upload', [VideoController::class, 'upload']);
+Route::get('/videos', [VideoController::class, 'videos'])->name('videos');
+Route::group(['prefix' => 'video'], function () {
+    Route::post('/upload', [VideoController::class, 'store'])->name('video.upload');
 });
-Route::get('/signup',[AuthController::class,'signup']);
-Route::get('/signin',[AuthController::class,'signin']);
+Route::get('/signup', [AuthController::class, 'signup']);
+Route::get('/signin', [AuthController::class, 'signin']);
+
+
+Route::get('help', [HelpController::class, 'show'])->name('route.help');
