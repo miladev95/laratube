@@ -11,7 +11,7 @@
 
         </div>
         <div class="card-body">
-            @foreach($videos as $video)
+            @forelse($videos as $video)
                 <div class="row">
                     <div class="col-md-6">
                         <h4>{{$video->title}}</h4>
@@ -22,7 +22,10 @@
                                 allowfullscreen></iframe>
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <p class="text-muted p-3 text-center fs-5">No videos found.</p>
+
+            @endforelse
         </div>
     </div>
 @endsection
