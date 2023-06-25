@@ -7,6 +7,7 @@ use App\Http\Requests\StoreVideoRequest;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class VideoController extends Controller
 {
@@ -30,15 +31,24 @@ class VideoController extends Controller
             $user = Auth::user();
             $user->videos()->save($video);
 
-            return redirect()->route('videos')->with('success' , 'Video uploaded successfully');
+            return redirect()->route('videos')->with('success', 'Video uploaded successfully');
         } else {
             return redirect()->back()->with('error', 'No video file provided!');
         }
     }
+
+    public function remove(Video $video)
+    {
+        $this->authorize('remove', $video);
+        Storage::disk('public')->delete($video->src);
+        $video->delete();
+        return back();
+    }
+
     public function videos()
     {
-        $videos = Video::all();
-        return view('videos',compact('videos'));
+        $videos = Video::where('user_id', Auth::user()->id)->get();
+        return view('videos', compact('videos'));
     }
 
 

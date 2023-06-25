@@ -15,16 +15,16 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h4>{{$video->title}}</h4>
-                        <p>{{$video->description}}</p>
+                        <p>{{$video->src}}</p>
                     </div>
                     <div class="col-md-6">
                         <iframe width="100%" height="auto" src="{{$video->src}}" frameborder="0"
                                 allowfullscreen></iframe>
                     </div>
+                    <a href="{{ route('remove',['video' => $video]) }}" class="btn btn-primary mt-2">Remove</a>
                 </div>
             @empty
                 <p class="text-muted p-3 text-center fs-5">No videos found.</p>
-
             @endforelse
         </div>
     </div>
