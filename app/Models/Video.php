@@ -46,4 +46,9 @@ class Video extends Model
     {
         $this->increment('view');
     }
+
+    public function scopePending($query)
+    {
+        return $query->where('status',Video::status[0]);
+    }
 }
