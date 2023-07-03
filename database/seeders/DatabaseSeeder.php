@@ -13,6 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->count(1)->create();
+        $this->call(UserTableSeeder::class);
     }
 }
