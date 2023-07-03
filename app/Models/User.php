@@ -38,4 +38,14 @@ class User extends Authenticatable
     {
         return $this->roles->contains('name', $role);
     }
+
+    public function isAdmin()
+    {
+        return $this->roles->contains('name','admin');
+    }
+
+    public function isUser()
+    {
+        return $this->roles->contains('name','user');
+    }
 }

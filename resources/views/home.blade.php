@@ -1,10 +1,7 @@
-here
-@if($user->hasRole('admin'))
-    here2
+@if($user->isAdmin())
     @extends('admin.base')
 
-@elseif($user->hasRole('user'))
-    here3
+@elseif($user->isUser())
     @extends('base')
 @endif
 

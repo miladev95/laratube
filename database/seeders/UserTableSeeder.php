@@ -23,14 +23,14 @@ class UserTableSeeder extends Seeder
             'password' => Hash::make(123),
         ]);
 
-        $adminUser->assignRole($adminUser);
+        $adminUser->assignRole($adminRole);
 
         $regularUser = User::create([
             'name' => 'Regular User',
             'email' => 'user@example.com',
             'password' => Hash::make(123),
         ]);
-        
-        $regularUser->assignRole($regularUser);
+
+        $regularUser->assignRole($userRole);
     }
 }
