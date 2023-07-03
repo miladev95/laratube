@@ -11,4 +11,13 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    optimizeDeps: {
+        exclude: ['jquery']
+    },
+
+    rollupOutputOptions: {
+        globals: {
+            jquery: 'jQuery'
+        }
+    },
 });

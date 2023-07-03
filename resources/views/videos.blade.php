@@ -4,14 +4,16 @@
 @section('title', 'Video List')
 
 @section('content')
-    <div class="card mt-4">
-        <div class="card-header d-flex justify-content-between">
-            <h2>{{count($videos)}} Videos</h2>
-            <a href="{{ route('upload') }}" class="btn btn-primary">New</a>
 
-        </div>
-        <div class="card-body">
-            @forelse($videos as $video)
+    <div class="card-header d-flex justify-content-between mt-5">
+        <h2>{{count($videos)}} Videos</h2>
+        <a href="{{ route('upload') }}" class="btn btn-primary">New</a>
+
+    </div>
+
+    @forelse($videos as $video)
+        <div class="card mt-4">
+            <div class="card-body">
                 <div class="row mt-2">
                     <div class="col-md-6">
                         <h4>Title: {{$video->title}}</h4>
@@ -31,9 +33,12 @@
                         <a href="{{ route('view',['video' => $video]) }}" class="btn btn-primary mt-2 ml-2">View</a>
                     </div>
                 </div>
-            @empty
-                <p class="text-muted p-3 text-center fs-5">No videos found.</p>
-            @endforelse
+            </div>
         </div>
-    </div>
+    @empty
+        <p class="text-muted p-3 text-center fs-5">No videos found.</p>
+    @endforelse
+
+
+
 @endsection

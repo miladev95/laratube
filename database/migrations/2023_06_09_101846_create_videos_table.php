@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('src');
             $table->enum('status' , Video::status);
-            $table->string('delete_reason')->nullable();
+            $table->string('reject_reason')->nullable();
             $table->unsignedBigInteger('view')->default(0);
 
             $table->unsignedBigInteger('user_id');

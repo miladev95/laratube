@@ -19,4 +19,19 @@ class VideoController extends Controller
         $video->status = $request->status;
         return view('admin.videos')->with('success', 'Video status successfully changed');
     }
+
+    public function approve(Video $video)
+    {
+        $video->status = Video::status[1];
+        $video->save();
+        return back()->with('success', 'Video approved successfully');
+    }
+
+    public function reject(Request $request, Video $video)
+    {
+        $video->status = Video::status[2];
+        $video->reject_reason = $request->input('reason');
+        $video->save();
+        return back()->with('success', 'Video rejected successfully');
+    }
 }
