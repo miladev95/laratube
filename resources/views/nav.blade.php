@@ -9,11 +9,20 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
         </li>
+        @if(auth()->user()->isSuperAdmin())
+            <li class="nav-item">
+                <a class="nav-link"
+                   href="{{route('superadmin.users.index')}}">Users</a>
+            </li>
+        @endif
         <li class="nav-item">
             <a class="nav-link" href="{{ route('profile') }}">Profile</a>
         </li>
+
+
         <li class="nav-item">
-            <a class="nav-link" href="{{ auth()->user()->isAdmin() ? route('admin.videos.index') : route('user.videos.index') }}">Videos</a>
+            <a class="nav-link"
+               href="{{ auth()->user()->isAdmin() ? route('admin.videos.index') : route('user.videos.index') }}">Videos</a>
         </li>
 
         <li class="nav-item dropdown">

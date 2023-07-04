@@ -41,11 +41,16 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        return $this->roles->contains('name','admin');
+        return $this->roles->contains('name', 'admin');
     }
 
     public function isUser()
     {
-        return $this->roles->contains('name','user');
+        return $this->roles->contains('name', 'user');
+    }
+
+    public function isSuperAdmin()
+    {
+        return $this->roles->contains('name', 'super_admin');
     }
 }

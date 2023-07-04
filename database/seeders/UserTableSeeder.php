@@ -16,6 +16,7 @@ class UserTableSeeder extends Seeder
     {
         $adminRole = Role::create(['name' => 'admin']);
         $userRole = Role::create(['name' => 'user']);
+        $superAdminRole = Role::create(['name' => 'super_admin']);
 
         $adminUser = User::create([
             'name' => 'Admin User',
@@ -32,5 +33,13 @@ class UserTableSeeder extends Seeder
         ]);
 
         $regularUser->assignRole($userRole);
+
+        $superAdminUser = User::create([
+            'name' => 'Super Admin User',
+            'email' => 'superadmin@example.com',
+            'password' => Hash::make(123),
+        ]) ;
+
+        $superAdminUser->assignRole($superAdminRole);
     }
 }

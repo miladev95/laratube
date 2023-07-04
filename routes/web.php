@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HelpController;
+use App\Http\Controllers\SuperAdmin\UsersController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
@@ -53,6 +54,11 @@ Route::group(['middleware' => 'role:admin', 'prefix' => 'admin'], function () {
     Route::post('change_status/{video}', [\App\Http\Controllers\Admin\VideoController::class, 'changeStatus'])->name('admin.videos.change_status');
     Route::post('video/reject',[\App\Http\Controllers\Admin\VideoController::class,'reject'])->name('admin.video.reject');
     Route::get('video/{video}/approve',[\App\Http\Controllers\Admin\VideoController::class,'approve'])->name('admin.video.approve');
+});
+
+Route::group(['middleware' => 'role:super_admin','prefix' => 'superadmin'] , function () {
+    Route::get('users',[UsersController::class,'index'])->name('superadmin.users.index');
+    Route::get('user/{user}/remove',[UsersController::class,'remove'])->name('superadmin.user.delete');
 });
 
 
