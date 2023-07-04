@@ -1,10 +1,4 @@
-@if($user->isAdmin())
-    @extends('admin.base')
-
-@elseif($user->isUser())
-    @extends('base')
-@endif
-
+@extends($user->isAdmin() ? 'admin.base' : 'base')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
