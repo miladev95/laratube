@@ -50,8 +50,9 @@
             </div>
         </div>
     @empty
-        <p class="text-muted p-3 text-center fs-5">this is admin</p>
-
+        <div class="d-flex justify-content-center align-items-center vh-100">
+            <p class="text-muted p-3 text-center fs-5">No videos found</p>
+        </div>
     @endforelse
 
     <div class="modal fade" id="rejectModal" tabindex="-1" role="dialog" aria-labelledby="rejectModalLabel"
