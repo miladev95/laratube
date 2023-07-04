@@ -27,11 +27,18 @@ class VideoController extends Controller
         return back()->with('success', 'Video approved successfully');
     }
 
-    public function reject(Request $request, Video $video)
+    public function reject(Request $request)
     {
-        $video->status = Video::status[2];
-        $video->reject_reason = $request->input('reason');
-        $video->save();
-        return back()->with('success', 'Video rejected successfully');
+        $video_id = $request->input('video_id');
+        $video = Video::whereId($video_id)->first();
+        if ($video) {
+            $video->status = Video::status[2];
+            $video->reject_reason = $request->input('reason');
+            $video->save();
+            return back()->with('success', 'Video rejected successfully');
+        } else {
+            return back()->with('error', 'Something is wrong');
+        }
+
     }
 }

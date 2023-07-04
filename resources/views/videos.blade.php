@@ -1,3 +1,4 @@
+@php use App\Models\Video; @endphp
 @extends('base')
 
 
@@ -21,6 +22,9 @@
                         <p>Source: {{$video->src}}</p>
                         <p>Views: {{$video->view}}</p>
                         <p>Status: {{$video->status}}</p>
+                        @if($video->status === 'Rejected' && $video->reject_reason)
+                            <p>Reason: {{$video->reject_reason}}</p>
+                        @endif
                     </div>
                     <div class="col-md-6">
                         <iframe width="100%" height="auto" src="{{$video->src}}" frameborder="0"
@@ -38,7 +42,5 @@
     @empty
         <p class="text-muted p-3 text-center fs-5">No videos found.</p>
     @endforelse
-
-
 
 @endsection

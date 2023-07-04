@@ -31,7 +31,7 @@ class Video extends Model
         $result = match ($value) {
             'PENDING' => 'Pending',
             'APPROVED' => 'Active',
-            'FAILED' => 'Rejected',
+            'REJECTED' => 'Rejected',
             'DELETED' => 'Deleted',
         };
         return $result;

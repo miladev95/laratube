@@ -52,7 +52,7 @@ Route::middleware('auth')->group(function () {
 Route::group(['middleware' => 'role:admin', 'prefix' => 'admin'], function () {
     Route::get('videos', [\App\Http\Controllers\Admin\VideoController::class, 'index'])->name('admin.videos.index');
     Route::post('change_status/{video}', [\App\Http\Controllers\Admin\VideoController::class, 'changeStatus'])->name('admin.videos.change_status');
-    Route::get('video/{video}/reject',[\App\Http\Controllers\Admin\VideoController::class,'reject'])->name('admin.video.reject');
+    Route::post('video/reject',[\App\Http\Controllers\Admin\VideoController::class,'reject'])->name('admin.video.reject');
     Route::get('video/{video}/approve',[\App\Http\Controllers\Admin\VideoController::class,'approve'])->name('admin.video.approve');
 });
 

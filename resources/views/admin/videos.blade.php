@@ -5,18 +5,18 @@
 @section('content')
 
     @if (session('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success mt-5">
             {{ session('success') }}
         </div>
     @endif
 
     @if (session('error'))
-        <div class="alert alert-danger">
+        <div class="alert alert-danger mt-5">
             {{ session('error') }}
         </div>
     @endif
     @if ($errors->any())
-        <div class="alert alert-danger">
+        <div class="alert alert-danger mt-5">
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -40,7 +40,9 @@
                                 allowfullscreen></iframe>
                     </div>
                     <div class="col-md-12 d-flex">
-                        <a class="btn btn-danger mt-2 ml-2 open-reject-modal" href="{{ route('admin.video.reject',['video' => $video]) }}">Reject</a>
+                        <button class="btn btn-danger mt-2 ml-2 open-reject-modal" id="open-reject-modal"
+                                data-video-id="{{$video->id}}">Reject
+                        </button>
                         <a href="{{ route('admin.video.approve',['video' => $video]) }}"
                            class="btn btn-success mt-2 ml-2">Approve</a>
                     </div>
@@ -52,65 +54,60 @@
 
     @endforelse
 
-    <div class="modal fade" id="rejectModal" tabindex="-1" role="dialog" aria-labelledby="rejectModalLabel" aria-hidden="true">
+    <div class="modal fade" id="rejectModal" tabindex="-1" role="dialog" aria-labelledby="rejectModalLabel"
+         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="rejectModalLabel">Reject Video</h5>
+                    <h5 class="modal-title" id="rejectModalLabel">Reject</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <form id="rejectForm">
+                <form id="rejectForm" action="{{ route('admin.video.reject') }}" method="POST">
+                    @csrf
+                    @method('POST')
+                    <div class="modal-body">
                         <input type="hidden" id="videoId" name="videoId">
                         <div class="form-group">
                             <label for="rejectReason">Reject Reason</label>
-                            <input type="text" class="form-control" id="rejectReason" name="rejectReason">
+                            <input type="hidden" name="video_id" id="video_id_input" >
+                            <textarea type="text" class="form-control" id="rejectReason" name="reason"></textarea>
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" id="rejectSubmit">Submit</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="rejectCancel" data-dismiss="modal">Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary" id="rejectSubmit">Reject</button>
+                    </div>
+
+                </form>
             </div>
         </div>
     </div>
 
 
     <script>
-        $(document).ready(function() {
-            $('.open-reject-modal').click(function() {
-                var videoId = $(this).data('video-id');
-                console.log(videoId);
-                $('#videoId').val(videoId);
+
+        const btn = document.getElementById("open-reject-modal");
+        const videoIdInput = document.getElementById("video_id_input");
+
+        btn.addEventListener("click", function () {
+            // Example: Set the modal content dynamically
+            videoIdInput.value = this.getAttribute("data-video-id");
+            console.log(videoIdInput.value);
+        });
+
+        $(document).ready(function () {
+
+            $('.open-reject-modal').click(function () {
                 $('#rejectModal').modal('show');
             });
 
-            $('#rejectSubmit').click(function() {
-                var videoId = $('#videoId').val();
-                var rejectReason = $('#rejectReason').val();
-
-                $.ajax({
-                    type: 'POST',
-                    url: '/admin/video/' + videoId + '/reject',
-                    data: {
-                        reason: rejectReason
-                    },
-                    success: function(response) {
-                        // Handle success response
-                        console.log(response);
-                    },
-                    error: function(xhr, status, error) {
-                        // Handle error response
-                        console.error(xhr.responseText);
-                    }
-                });
+            $('#rejectCancel').click(function () {
+                $('#rejectModal').modal('hide');
             });
         });
-
-
-
+    </script>
 
 @endsection
