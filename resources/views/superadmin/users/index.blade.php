@@ -24,10 +24,17 @@
                                 <td>{{$user->email}}</td>
                                 <td>
                                     @foreach($user->showRoles() as $role)
-                                        {{$role}}
-                                        @if (!$loop->last)
-                                            ,
-                                        @endif
+                                        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                                            {{$role}}
+                                            <form
+                                                action="{{route('superadmin.user.remove_role' , ['user' => $user])}}" method="POST">
+                                                <input type="hidden" name="role" value="{{strtolower($role)}}">
+                                                @csrf
+                                                <button type="submit" class="btn-close"
+                                                        aria-label="Close"></button>
+                                            </form>
+
+                                        </div>
                                     @endforeach
                                 </td>
                                 <td>
@@ -44,19 +51,22 @@
                                         @if(!in_array('Admin',$userRoles))
                                             <a href="{{route('superadmin.user.assign_admin' , ['user' => $user->id])}}"
                                                class="btn btn-primary"
-                                               onclick="return confirm('Are you sure you want to assign admin role to this user?')">Assign Admin Role</a>
+                                               onclick="return confirm('Are you sure you want to assign admin role to this user?')">Assign
+                                                Admin Role</a>
                                         @endif
 
                                         @if(!in_array('User',$userRoles))
                                             <a href="{{route('superadmin.user.assign_user' , ['user' => $user->id])}}"
                                                class="btn btn-primary mt-2"
-                                               onclick="return confirm('Are you sure you want to assign user role to this user?')">Assign User Role</a>
+                                               onclick="return confirm('Are you sure you want to assign user role to this user?')">Assign
+                                                User Role</a>
                                         @endif
 
                                         @if(!in_array('Super Admin' ,$userRoles))
                                             <a href="{{route('superadmin.user.assign_super_admin' , ['user' => $user->id])}}"
                                                class="btn btn-primary mt-2"
-                                               onclick="return confirm('Are you sure you want to assign super admin role to this user?')">Assign Super Admin Role</a>
+                                               onclick="return confirm('Are you sure you want to assign super admin role to this user?')">Assign
+                                                Super Admin Role</a>
                                         @endif
                                     @endif
                                 </td>

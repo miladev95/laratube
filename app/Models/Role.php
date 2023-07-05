@@ -13,4 +13,19 @@ class Role extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
+    public function scopeConvertRole($role)
+    {
+        if ($role === 'Super Admin') {
+            return 'super_admin';
+        }
+
+        if ($role === 'Admin') {
+            return 'admin';
+        }
+
+        if ($role === 'User') {
+            return 'user';
+        }
+    }
 }
