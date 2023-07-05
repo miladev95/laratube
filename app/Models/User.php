@@ -53,4 +53,23 @@ class User extends Authenticatable
     {
         return $this->roles->contains('name', 'super_admin');
     }
+
+    public function scopeshowRoles()
+    {
+        $result = [];
+        if ($this->roles->contains('name', 'user')) {
+            $result[] = 'User';
+        }
+
+        if ($this->roles->contains('name', 'admin')) {
+            $result[] = 'Admin';
+        }
+
+        if($this->roles->contains('name','super_admin'))
+        {
+            $result[] = 'Super Admin';
+        }
+
+        return $result;
+    }
 }
