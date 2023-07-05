@@ -22,14 +22,18 @@
                             <tr>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
-                                @foreach($user->showRoles() as $role)
-                                    <td>{{$role}}</td>
-                                @endforeach
-
+                                <td>
+                                    @foreach($user->showRoles() as $role)
+                                        {{$role}}
+                                        @if (!$loop->last)
+                                            ,
+                                        @endif
+                                    @endforeach
+                                </td>
                                 <td>
                                     @php
                                         $userId = auth()->user()->id;
-                                        $userRoles = auth()->user()->showRoles();
+                                        $userRoles = $user->showRoles();
                                     @endphp
 
                                     @if($user->id !== $userId )
@@ -37,25 +41,22 @@
                                         <a href="{{route('superadmin.user.delete' , ['user' => $user->id])}}"
                                            class="btn btn-danger"
                                            onclick="return confirm('Are you sure you want to remove this user and his/her videos?')">Remove</a>
-                                        @if(in_array('User',$userRoles) || in_array('Super Admin',$userRoles))
-                                            <a href="{{route('superadmin.user.delete' , ['user' => $user->id])}}"
+                                        @if(!in_array('Admin',$userRoles))
+                                            <a href="{{route('superadmin.user.assign_admin' , ['user' => $user->id])}}"
                                                class="btn btn-primary"
-                                               onclick="return confirm('Are you sure you want to assign role to this user?')">Change
-                                                to Admin</a>
+                                               onclick="return confirm('Are you sure you want to assign admin role to this user?')">Assign Admin Role</a>
                                         @endif
 
-                                        @if(in_array('Admin',$userRoles) || in_array('Super Admin',$userRoles))
-                                            <a href="{{route('superadmin.user.delete' , ['user' => $user->id])}}"
+                                        @if(!in_array('User',$userRoles))
+                                            <a href="{{route('superadmin.user.assign_user' , ['user' => $user->id])}}"
                                                class="btn btn-primary mt-2"
-                                               onclick="return confirm('Are you sure you want to assign role to this user?')">Change
-                                                to User</a>
+                                               onclick="return confirm('Are you sure you want to assign user role to this user?')">Assign User Role</a>
                                         @endif
 
-                                        @if(in_array('Admin',$userRoles) || in_array('User',$userRoles))
-                                            <a href="{{route('superadmin.user.delete' , ['user' => $user->id])}}"
+                                        @if(!in_array('Super Admin' ,$userRoles))
+                                            <a href="{{route('superadmin.user.assign_super_admin' , ['user' => $user->id])}}"
                                                class="btn btn-primary mt-2"
-                                               onclick="return confirm('Are you sure you want to remove this user and his/her videos?')">Change
-                                                to Super Admin</a>
+                                               onclick="return confirm('Are you sure you want to assign super admin role to this user?')">Assign Super Admin Role</a>
                                         @endif
                                     @endif
                                 </td>

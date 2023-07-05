@@ -59,6 +59,9 @@ Route::group(['middleware' => 'role:admin', 'prefix' => 'admin'], function () {
 Route::group(['middleware' => 'role:super_admin','prefix' => 'superadmin'] , function () {
     Route::get('users',[UsersController::class,'index'])->name('superadmin.users.index');
     Route::get('user/{user}/remove',[UsersController::class,'remove'])->name('superadmin.user.delete');
+    Route::get('user/{user}/assign/user',[UsersController::class,'assignUser'])->name('superadmin.user.assign_user');
+    Route::get('user/{user}/assign/admin',[UsersController::class,'assignAdmin'])->name('superadmin.user.assign_admin');
+    Route::get('user/{user}/assign/super_admin',[UsersController::class,'assignSuperAdmin'])->name('superadmin.user.assign_super_admin');
 });
 
 

@@ -65,8 +65,7 @@ class User extends Authenticatable
             $result[] = 'Admin';
         }
 
-        if($this->roles->contains('name','super_admin'))
-        {
+        if ($this->roles->contains('name', 'super_admin')) {
             $result[] = 'Super Admin';
         }
 
