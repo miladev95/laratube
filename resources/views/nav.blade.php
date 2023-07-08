@@ -22,7 +22,7 @@
 
         <li class="nav-item">
             <a class="nav-link"
-               href="{{ auth()->user()->isAdmin() ? route('admin.videos.index') : route('user.videos.index') }}">Videos</a>
+               href="{{ auth()->user()->isAdmin() || auth()->user()->isSuperAdmin() ? route('admin.videos.index') : route('user.videos.index') }}">Videos</a>
         </li>
 
         <li class="nav-item dropdown">
