@@ -15,10 +15,10 @@ class Video extends Model
     protected $guarded = [];
 
     public const status = [
-        'PENDING',
-        'APPROVED',
-        'REJECTED',
-        'DELETED',
+        'Pending' => 'PENDING',
+        'Approved' => 'APPROVED',
+        'Rejected' => 'REJECTED',
+        'Deleted' => 'DELETED',
     ];
 
     public function user()
@@ -49,6 +49,6 @@ class Video extends Model
 
     public function scopePending($query)
     {
-        return $query->where('status',Video::status[0]);
+        return $query->where('status',Video::status['Pending']);
     }
 }

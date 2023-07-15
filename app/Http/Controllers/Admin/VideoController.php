@@ -22,7 +22,7 @@ class VideoController extends Controller
 
     public function approve(Video $video)
     {
-        $video->status = Video::status[1];
+        $video->status = Video::status['Approved'];
         $video->save();
         return back()->with('success', 'Video approved successfully');
     }
@@ -32,7 +32,7 @@ class VideoController extends Controller
         $video_id = $request->input('video_id');
         $video = Video::whereId($video_id)->first();
         if ($video) {
-            $video->status = Video::status[2];
+            $video->status = Video::status['Rejected'];
             $video->reject_reason = $request->input('reason');
             $video->save();
             return back()->with('success', 'Video rejected successfully');
