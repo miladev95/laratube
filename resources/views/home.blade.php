@@ -18,20 +18,24 @@
                         @if($video->status === 'Rejected' && $video->reject_reason)
                             <p>Reason: {{$video->reject_reason}}</p>
                         @endif
+
+                        <div class="d-flex">
+                            <a href="{{ route('remove',['video' => $video]) }}" class="btn btn-primary mt-2"
+                               onclick="return confirm('Are you sure you want to remove this video?')">Remove</a>
+                            <a href="{{ route('edit',['video' => $video]) }}" class="btn btn-primary mt-2 ml-2">Edit</a>
+                            <a href="{{ route('view',['video' => $video]) }}" class="btn btn-primary mt-2 ml-2">View</a>
+                        </div>
                     </div>
+
                     <div class="col-md-6">
-                        <iframe width="100%" height="auto" src="{{$video->src}}" frameborder="0"
-                                allowfullscreen></iframe>
-                    </div>
-                    <div class="col-md-12 d-flex">
-                        <a href="{{ route('remove',['video' => $video]) }}" class="btn btn-primary mt-2"
-                           onclick="return confirm('Are you sure you want to remove this video?')">Remove</a>
-                        <a href="{{ route('edit',['video' => $video]) }}" class="btn btn-primary mt-2 ml-2">Edit</a>
-                        <a href="{{ route('view',['video' => $video]) }}" class="btn btn-primary mt-2 ml-2">View</a>
+                        <div class="video-container">
+                            <iframe width="100%" height="300" src="{{$video->src}}" frameborder="0" allowfullscreen></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
     @empty
         <p class="text-muted p-3 text-center fs-5">No videos found.</p>
     @endforelse

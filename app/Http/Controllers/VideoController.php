@@ -39,7 +39,7 @@ class VideoController extends Controller
             $user = Auth::user();
             $user->videos()->save($video);
 
-            return redirect()->route('videos')->with('success', 'Video uploaded successfully');
+            return redirect()->route('user.videos.index')->with('success', 'Video uploaded successfully');
         } else {
             return redirect()->back()->with('error', 'No video file provided!');
         }
