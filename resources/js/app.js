@@ -1,3 +1,1 @@
-import 'jquery';
-import './bootstrap';
-
+require('./bootstrap');
