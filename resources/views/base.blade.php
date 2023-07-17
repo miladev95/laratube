@@ -31,6 +31,10 @@
         </button>
 
        @include('nav')
+
+        <style>
+            @yield('style')
+        </style>
     </div>
 </nav>
 
