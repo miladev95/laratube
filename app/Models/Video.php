@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\VideoStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,27 +15,9 @@ class Video extends Model
     protected $keyType = 'string';
     protected $guarded = [];
 
-    public const status = [
-        'Pending' => 'PENDING',
-        'Approved' => 'APPROVED',
-        'Rejected' => 'REJECTED',
-        'Deleted' => 'DELETED',
-    ];
-
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function getStatusAttribute($value)
-    {
-        $result = match ($value) {
-            'PENDING' => 'Pending',
-            'APPROVED' => 'Active',
-            'REJECTED' => 'Rejected',
-            'DELETED' => 'Deleted',
-        };
-        return $result;
     }
 
     public function getSrcAttribute($value)
@@ -49,6 +32,6 @@ class Video extends Model
 
     public function scopePending($query)
     {
-        return $query->where('status',Video::status['Pending']);
+        return $query->where('status',VideoStatus::Pending->getStringValue());
     }
 }

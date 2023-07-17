@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\VideoStatus;
 use App\Http\Controllers\Controller;
 use App\Models\Video;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class VideoController extends Controller
 
     public function approve(Video $video)
     {
-        $video->status = Video::status['Approved'];
+        $video->status = VideoStatus::Approved->getStringValue();
         $video->save();
         return back()->with('success', 'Video approved successfully');
     }
@@ -32,7 +33,7 @@ class VideoController extends Controller
         $video_id = $request->input('video_id');
         $video = Video::whereId($video_id)->first();
         if ($video) {
-            $video->status = Video::status['Rejected'];
+            $video->status = VideoStatus::Rejected->getStringValue();
             $video->reject_reason = $request->input('reason');
             $video->save();
             return back()->with('success', 'Video rejected successfully');

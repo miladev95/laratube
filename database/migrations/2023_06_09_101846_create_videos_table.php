@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\VideoStatus;
 use App\Models\Video;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,7 +18,9 @@ return new class extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('src');
-            $table->enum('status' , Video::status);
+            $table->enum('status' , [VideoStatus::Deleted->getStringValue(),VideoStatus::Approved->getStringValue(),
+                VideoStatus::Rejected->getStringValue(),
+                VideoStatus::Pending->getStringValue()])->default(VideoStatus::Pending->getStringValue());
             $table->string('reject_reason')->nullable();
             $table->unsignedBigInteger('view')->default(0);
 

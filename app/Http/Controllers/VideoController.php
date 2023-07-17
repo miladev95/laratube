@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\VideoStatus;
 use App\Events\VideoUploaded;
 use App\Http\Requests\StoreVideoRequest;
 use App\Models\Video;
@@ -33,7 +34,7 @@ class VideoController extends Controller
             $video->id = Uuid::uuid4()->toString();
             $video->title = $request->title;
             $video->description = $request->description;
-            $video->status = Video::status['Pending'];
+            $video->status = VideoStatus::Pending->getStringValue();
             $video->src = $path;
 
             $user = Auth::user();
@@ -51,7 +52,7 @@ class VideoController extends Controller
 
 
         $video->title = $request->input('title');
-        $video->status = Video::status['Pending'];
+        $video->status = VideoStatus::Pending->getStringValue();
         $video->description = $request->input('description');
 
         $video->save();
