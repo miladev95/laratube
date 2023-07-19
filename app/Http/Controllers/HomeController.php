@@ -9,8 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $videos = Video::all();
-
+        $videos = Video::Approved()->get();
         return view('home',compact('videos'));
     }
 }

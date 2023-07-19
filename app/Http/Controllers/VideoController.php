@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Enums\VideoStatus;
 use App\Events\VideoUploaded;
 use App\Http\Requests\StoreVideoRequest;
+use App\Jobs\NotifyAdminUsersForNewVideoJob;
 use App\Models\Video;
+use App\Notifications\NewVideoUploaded;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -39,6 +41,8 @@ class VideoController extends Controller
 
             $user = Auth::user();
             $user->videos()->save($video);
+
+            NotifyAdminUsersForNewVideoJob::dispatch($user);
 
             return redirect()->route('user.videos.index')->with('success', 'Video uploaded successfully');
         } else {

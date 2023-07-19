@@ -34,4 +34,9 @@ class Video extends Model
     {
         return $query->where('status',VideoStatus::Pending->getStringValue());
     }
+
+    public function scopeApproved($query)
+    {
+        return $query->where('status',VideoStatus::Approved->getStringValue());
+    }
 }

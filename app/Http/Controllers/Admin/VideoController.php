@@ -4,28 +4,31 @@ namespace App\Http\Controllers\Admin;
 
 use App\Enums\VideoStatus;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\Response;
 use App\Models\Video;
 use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {
+    use Response;
+
     public function index()
     {
         $videos = Video::pending()->get();
-        return view('admin.videos', compact('videos'));
+        return $this->successResponse(data: $videos);
     }
 
     public function changeStatus(Request $request, Video $video)
     {
         $video->status = $request->status;
-        return view('admin.videos')->with('success', 'Video status successfully changed');
+        return $this->successResponse(message: 'Video status successfully changed');
     }
 
     public function approve(Video $video)
     {
         $video->status = VideoStatus::Approved->getStringValue();
         $video->save();
-        return back()->with('success', 'Video approved successfully');
+        return $this->successResponse(message: 'Video approved successfully');
     }
 
     public function reject(Request $request)
@@ -36,9 +39,9 @@ class VideoController extends Controller
             $video->status = VideoStatus::Rejected->getStringValue();
             $video->reject_reason = $request->input('reason');
             $video->save();
-            return back()->with('success', 'Video rejected successfully');
+            return $this->successResponse(message: 'Video rejected successfully');
         } else {
-            return back()->with('error', 'Something is wrong');
+            return $this->errorResponse(message: 'Something is wrong',code: 500);
         }
 
     }
