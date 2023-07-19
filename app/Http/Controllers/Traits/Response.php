@@ -12,10 +12,11 @@ trait Response
         ], $code, $header);
     }
 
-    protected function errorResponse($message, $code, $header = [])
+    protected function errorResponse($message, $code,$data = [], $header = [])
     {
         return response([
-            'message' => $message
+            'message' => $message,
+            'data' => $data,
         ], $code, $header);
     }
 }

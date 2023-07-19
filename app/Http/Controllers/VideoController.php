@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Enums\VideoStatus;
 use App\Events\VideoUploaded;
+use App\Http\Controllers\Traits\Response;
 use App\Http\Requests\StoreVideoRequest;
 use App\Jobs\NotifyAdminUsersForNewVideoJob;
 use App\Models\Video;
-use App\Notifications\NewVideoUploaded;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -15,15 +15,7 @@ use Ramsey\Uuid\Uuid;
 
 class VideoController extends Controller
 {
-    public function upload()
-    {
-        return view('upload');
-    }
-
-    public function edit(Video $video)
-    {
-        return view('edit', compact('video'));
-    }
+    use Response;
 
     public function store(StoreVideoRequest $request)
     {
@@ -44,9 +36,9 @@ class VideoController extends Controller
 
             NotifyAdminUsersForNewVideoJob::dispatch($user);
 
-            return redirect()->route('user.videos.index')->with('success', 'Video uploaded successfully');
+            return $this->successResponse(message: 'Video uploaded successfully');
         } else {
-            return redirect()->back()->with('error', 'No video file provided!');
+            return $this->errorResponse(message: 'No video fille provided', code: 422);
         }
     }
 
@@ -61,7 +53,7 @@ class VideoController extends Controller
 
         $video->save();
 
-        return redirect()->route('videos');
+        return $this->successResponse(message: 'Video updated successfully');
     }
 
     public function remove(Video $video)
@@ -70,21 +62,20 @@ class VideoController extends Controller
 
         Storage::disk('public')->delete($video->src);
         $video->delete();
-        return back();
+
+        return $this->successResponse(message: 'Video removed successfully');
     }
 
     public function videos()
     {
         $videos = Video::where('user_id', Auth::user()->id)->get();
-        return view('videos', compact('videos'));
+        return $this->successResponse(data: $videos);
     }
 
     public function view(Video $video)
     {
         $video->incrementViews();
-
         $video->save();
-
-        return view('view', compact('video'));
+        return $this->successResponse(data: $video);
     }
 }

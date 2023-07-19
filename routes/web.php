@@ -25,10 +25,8 @@ Route::get('/',[HomeController::class,'index'])->name('home');
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/upload', [VideoController::class, 'upload'])->name('upload');
 
     // edit video
-    Route::get('edit/{video}', [VideoController::class, 'edit'])->name('edit');
     Route::put('update/{video}', [VideoController::class, 'update'])->name('video.update');
 
 
@@ -62,10 +60,8 @@ Route::group(['middleware' => 'role:super_admin','prefix' => 'superadmin'] , fun
     Route::post('user/{user}/remove_role',[UsersController::class,'removeRole'])->name('superadmin.user.remove_role');
     Route::get('user/{user}/assign/admin',[UsersController::class,'assignAdmin'])->name('superadmin.user.assign_admin');
     Route::get('user/{user}/assign/super_admin',[UsersController::class,'assignSuperAdmin'])->name('superadmin.user.assign_super_admin');
-
 });
 
 
 Route::get('help', [HelpController::class, 'show'])->name('route.help')->middleware('auth');
-Auth::routes();
 
