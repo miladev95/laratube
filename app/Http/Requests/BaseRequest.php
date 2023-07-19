@@ -6,6 +6,9 @@ use App\Http\Controllers\Traits\Response;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Http\JsonResponse;
+
 class BaseRequest extends FormRequest
 {
     use Response;
@@ -20,6 +23,11 @@ class BaseRequest extends FormRequest
 
     protected function failedValidation(Validator $validator)
     {
-        return $this->errorResponse(message: 'The given data was invalid', code: 422, data: $validator->errors());
+        throw new HttpResponseException(
+            response()->json([
+                'message' => 'The given data was invalid.',
+                'data' => $validator->errors(),
+            ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY)
+        );
     }
 }

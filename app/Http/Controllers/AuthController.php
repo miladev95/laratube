@@ -14,7 +14,8 @@ class AuthController extends Controller
     use Response;
     public function login(LoginRequest $request)
     {
-        if (Auth::attempt($request->only('email', 'password'))) {
+        $validatedData = $request->validated();
+        if (Auth::attempt($validatedData)) {
             $user = Auth::user();
             $token = $user->createToken('YourAppToken')->accessToken;
             return $this->successResponse(message: 'Successfully logged in',data: ['token' => $token]);
