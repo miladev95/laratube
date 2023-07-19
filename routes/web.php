@@ -20,11 +20,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[HomeController::class,'index'])->name('home');
 
 
 Route::middleware('auth')->group(function () {
-
 
     // edit video
     Route::put('update/{video}', [VideoController::class, 'update'])->name('video.update');

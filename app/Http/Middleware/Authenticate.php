@@ -2,16 +2,21 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use App\Http\Controllers\Traits\Response;
+use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class Authenticate extends Middleware
+class Authenticate
 {
-    /**
-     * Get the path the user should be redirected to when they are not authenticated.
-     */
-    protected function redirectTo(Request $request): ?string
+    use Response;
+    public function handle(Request $request, Closure $next)
     {
-                return route('login'); // Redirect to a different route (e.g., home) for other non-authenticated routes
+        // Check if the user is authenticated
+        if (Auth::check()) {
+            return $next($request);
+        }
+
+        return $this->errorResponse(message: 'Unauthorized',code: 401);
     }
 }
