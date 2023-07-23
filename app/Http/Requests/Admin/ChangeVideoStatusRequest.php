@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Admin;
 
 use App\Enums\VideoStatus;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseRequest;
 
-class AdminChangeVideoStatusRequest extends BaseRequest
+class ChangeVideoStatusRequest extends BaseRequest
 {
 
     public function rules(): array

@@ -25,8 +25,8 @@ Route::middleware('authenticated')->group(function (){
     Route::group(['middleware' => 'admin.or.superadmin', 'prefix' => 'admin'], function () {
         Route::get('videos', [AdminVideoController::class, 'index']);
         Route::post('change_status/{video}', [AdminVideoController::class, 'changeStatus']);
-        Route::post('video/reject',[AdminVideoController::class,'reject']);
         Route::get('video/{video}/approve',[AdminVideoController::class,'approve']);
+        Route::post('video/{video}/reject',[AdminVideoController::class,'reject']);
     });
 
 

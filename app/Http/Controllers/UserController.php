@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Traits\Response;
-use App\Http\Requests\UpdateProfileRequest;
-use Illuminate\Http\Request;
+use App\Http\Requests\User\UpdateProfileRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 

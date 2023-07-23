@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Enums\VideoStatus;
 use App\Events\VideoUploaded;
 use App\Http\Controllers\Traits\Response;
-use App\Http\Requests\StoreVideoRequest;
+use App\Http\Requests\SuperAdmin\StoreVideoRequest;
 use App\Jobs\NotifyAdminUsersForNewVideoJob;
 use App\Models\Video;
 use Illuminate\Http\Request;

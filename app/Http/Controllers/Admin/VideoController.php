@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Enums\VideoStatus;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\Response;
-use App\Http\Requests\AdminChangeVideoStatusRequest;
+use App\Http\Requests\Admin\ChangeVideoStatusRequest;
+use App\Http\Requests\Admin\RejectVideoRequest;
 use App\Http\Resources\AdminVideosResource;
 use App\Models\Video;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class VideoController extends Controller
         return $this->successResponse(data: $videoResource);
     }
 
-    public function changeStatus(AdminChangeVideoStatusRequest $request, Video $video)
+    public function changeStatus(ChangeVideoStatusRequest $request, Video $video)
     {
         $video->status = $request->status;
         $video->save();
@@ -35,18 +36,11 @@ class VideoController extends Controller
         return $this->successResponse(message: 'Video approved successfully');
     }
 
-    public function reject(Request $request)
+    public function reject(Video $video, RejectVideoRequest $request)
     {
-        $video_id = $request->input('video_id');
-        $video = Video::whereId($video_id)->first();
-        if ($video) {
-            $video->status = VideoStatus::Rejected->getStringValue();
-            $video->reject_reason = $request->input('reason');
-            $video->save();
-            return $this->successResponse(message: 'Video rejected successfully');
-        } else {
-            return $this->errorResponse(message: 'Something is wrong',code: 500);
-        }
-
+        $video->status = VideoStatus::Rejected->getStringValue();
+        $video->reject_reason = $request->reason;
+        $video->save();
+        return $this->successResponse(message: 'Video rejected successfully');
     }
 }

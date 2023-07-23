@@ -4,11 +4,10 @@ namespace App\Http\Controllers\SuperAdmin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\Response;
-use App\Http\Requests\RemoveRoleRequest;
+use App\Http\Requests\SuperAdmin\RemoveRoleRequest;
 use App\Http\Resources\SuperAdminUsersResource;
 use App\Models\Role;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
