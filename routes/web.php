@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
     });
 
 
-    Route::get('view/{video}', [VideoController::class, 'view'])->name('view');
+
 
     Route::get('profile', [UserController::class, 'show'])->name('profile');
     Route::post('profile/update', [UserController::class, 'update'])->name('profile.update');

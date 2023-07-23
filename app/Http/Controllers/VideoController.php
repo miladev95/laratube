@@ -80,9 +80,12 @@ class VideoController extends Controller
      */
     public function view(Video $video)
     {
+        if($video->status === 'Deleted') {
+            return $this->errorResponse(message: 'Video not found');
+        }
         $video->incrementViews();
         $video->save();
-        return $this->successResponse(data: $video);
+        return $this->successResponse(message: 'Success');
     }
 
     /**
