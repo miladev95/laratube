@@ -19,6 +19,9 @@ class UsersController extends Controller
         return $this->successResponse(data: $resource);
     }
 
+    /**
+     * remove user with all videos and roles
+     */
     public function remove(User $user)
     {
         $user->roles()->detach(); // Remove related role_user records
@@ -27,6 +30,9 @@ class UsersController extends Controller
         return $this->successResponse(message: "User $user->name successfully removed");
     }
 
+    /**
+     * assign user role to a user
+     */
     public function assignUser(User $user)
     {
         $userRole = Role::where(['name' => 'user'])->first();
@@ -34,6 +40,9 @@ class UsersController extends Controller
         return $this->successResponse(message: 'Successfully assigned');
     }
 
+    /**
+     * assign admin role to a user
+     */
     public function assignAdmin(User $user)
     {
         $adminRole = Role::where(['name' => 'admin'])->first();
@@ -41,6 +50,9 @@ class UsersController extends Controller
         return $this->successResponse(message: 'Successfully assigned');
     }
 
+    /**
+     * assign super admin role to a user
+     */
     public function assignSuperAdmin(User $user)
     {
         $superAdminRole = Role::where(['name' => 'super_admin'])->first();
@@ -48,6 +60,10 @@ class UsersController extends Controller
         return $this->successResponse(message: 'Successfully assigned');
     }
 
+
+    /**
+     * remove a role from user
+     */
     public function removeRole(Request $request , User $user)
     {
         $role = $request->input('role');
