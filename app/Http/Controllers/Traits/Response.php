@@ -12,7 +12,7 @@ trait Response
         ], $code, $header);
     }
 
-    protected function errorResponse($message, $code,$data = [], $header = [])
+    protected function errorResponse($message, $code = 404,$data = [], $header = [])
     {
         return response([
             'message' => $message,
