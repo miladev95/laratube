@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "9d9c3a7c-1fa6-4fdc-a2d9-3469b2c9a7d0",
+		"name": "Laratube",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4291824"
+	},
+	"item": [
+		{
+			"name": "Superadmin",
+			"item": [
+				{
+					"name": "Show Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiMWNkOTU1OWI3OGQ1NGZlNDc0YTcwODIwZTQ5M2NkMWI2NjkxNTE4OGUyNDc4YTZlNDRlYzVlZjkyZGJkZjNkNTg3ZTViNTZkM2RjNDAyNjciLCJpYXQiOjE2OTAwOTYzMzMuMTYzMDc3LCJuYmYiOjE2OTAwOTYzMzMuMTYzMDc5LCJleHAiOjE3MjE3MTg3MzMuMTU5Nzc5LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.inuz3YjWAcQvjarUFfY1OiEnhvlmRaA3G0bmm7MJcgWok1dJ8-Yo2efzNcdTXZzJzjeO7JRjU4NAJP11LfkStSMfU3sjuXMo_roeCbYtgteeI36hV7cNEN0oJcu_6d9Mad-VmgTMQrldbz4DxSajpjKczTxRX1mv8Fa8E-Tzg8PfuiB3q2NMQbjWn0p8_igAIcJiSBDN8dfyFfzRs4Bxo3n77pdV1MH2p6wDasfCBkrrZscy-5f3t3WiwwzFg0Vf9rrI1CewEJZsSptZrGOBu2TqUWf4w0dEkwhVJS5lje2uXMT44xrV8CeEIIfvOh_qTaPKZWUKM2uwb6AMCLao9Q4jQMl3Oqblp7VtWjMhO5qPtllSKqGUa7tuXPOuWF7WLXC1T6Kx5NqTvreIMSblGzLmlKI51ivSNGzE29Y69Zqml5MRHzhWY2cyQ36lNNs9D5KQmsDtPs-7iRId428nKYMNlPcqQ0I1kQkt4PmPitMLB6Ah9enUVwHiyct7irDdZo-R_VeuxHDxm8l9LrVMLfU7ocKLe9BLKn_8hyqxBj5IAfMVOxRQRhbUil_mt6_R-GgH_K_21g6pt4Q0LaUrTAaNwhWmKvwHgLrRDjEmUO6Oy4s0do14JUL1SsmwpZZyVdvztFOc_OH6Tk8N1lG4CO6gUbWaAkZKXeP6_PZBhj8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/superadmin/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"superadmin",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiODBiNjBmYmIxMTVlNDZmMDk3ZDU4MDM0ODcwNWNiYjIzMmNmZWY2NzA3YTdmZTBlN2IyZjI3MGY2ZDk3NzEwMDQ2NDE5NGJjNDBiYzM0ZDMiLCJpYXQiOjE2OTAwOTcwODQuNjU0MzYyLCJuYmYiOjE2OTAwOTcwODQuNjU0MzY0LCJleHAiOjE3MjE3MTk0ODQuNjQ5MzA3LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.C3MOC72rE6WE4UTvnmgZKLrAYf-pov1-JxJ9nTWP-A_ea37uJ6NksnaC8ozsMv3qzNi7NouuOiVlaXQq0VcYqHnpjXNdI9PwOyytJSV83qDIUm09AqlNcwwj5rbM5OoFRnEmsZM6dfU-q6XGj6lS8sabuzBetQQwTZJOUsNX8qpLLK3c8b5Ao43xPe8jH_3VCdK961E7QnQ7hEiQzS6QpT56ih1M8y-HUVGe4VFgb27gCW7BsAy9uV9WPsJdBKvSLuTaGwMVsHSymPg_z0vaguZ33H95fewEs84YfOTgsvyytZw67271iBQEqBu_9nv72aAuh7KM0WTxJTq-MCwrHSZWV7WyK7UlSXXZh8lJG_vIF02RChXj1-lQb-pwzX82kdiiXKQLpry-7vfX7OtjucpstOnokadwf7dq1aJFjVok5JSLrpG-oboMLRapWVyzBwcJh4FjEmPVD8dbAY2TywCXNnor5pCHSENw7Fa3p02dTq_QoM6tUcim8dU1WuG5w7f2enV1yAQwu8r428CiWXgNtucwEwqOBpZlTsMwHg3duBVk-A0aX_ypSt_KYkkVCOV5IVNQys4zRzg4HGihn-MFwx8t5JurLLck44TVtYTS_VXvaTK-9tQkRKrNF5fb_OYRG9hSL-htWdJwmtDYggK-Adw7VbylQQ93kNSTtSQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/superadmin/user/4/remove",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"superadmin",
+								"user",
+								"4",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"superadmin@example.com\",\n    \"password\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/logout",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Home",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/home",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"home"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"milad123@gmail.com\",\n    \"password\": \"123\",\n    \"name\":\"milad\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
