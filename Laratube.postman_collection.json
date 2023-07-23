@@ -78,6 +78,88 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Assign User Role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiODBiNjBmYmIxMTVlNDZmMDk3ZDU4MDM0ODcwNWNiYjIzMmNmZWY2NzA3YTdmZTBlN2IyZjI3MGY2ZDk3NzEwMDQ2NDE5NGJjNDBiYzM0ZDMiLCJpYXQiOjE2OTAwOTcwODQuNjU0MzYyLCJuYmYiOjE2OTAwOTcwODQuNjU0MzY0LCJleHAiOjE3MjE3MTk0ODQuNjQ5MzA3LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.C3MOC72rE6WE4UTvnmgZKLrAYf-pov1-JxJ9nTWP-A_ea37uJ6NksnaC8ozsMv3qzNi7NouuOiVlaXQq0VcYqHnpjXNdI9PwOyytJSV83qDIUm09AqlNcwwj5rbM5OoFRnEmsZM6dfU-q6XGj6lS8sabuzBetQQwTZJOUsNX8qpLLK3c8b5Ao43xPe8jH_3VCdK961E7QnQ7hEiQzS6QpT56ih1M8y-HUVGe4VFgb27gCW7BsAy9uV9WPsJdBKvSLuTaGwMVsHSymPg_z0vaguZ33H95fewEs84YfOTgsvyytZw67271iBQEqBu_9nv72aAuh7KM0WTxJTq-MCwrHSZWV7WyK7UlSXXZh8lJG_vIF02RChXj1-lQb-pwzX82kdiiXKQLpry-7vfX7OtjucpstOnokadwf7dq1aJFjVok5JSLrpG-oboMLRapWVyzBwcJh4FjEmPVD8dbAY2TywCXNnor5pCHSENw7Fa3p02dTq_QoM6tUcim8dU1WuG5w7f2enV1yAQwu8r428CiWXgNtucwEwqOBpZlTsMwHg3duBVk-A0aX_ypSt_KYkkVCOV5IVNQys4zRzg4HGihn-MFwx8t5JurLLck44TVtYTS_VXvaTK-9tQkRKrNF5fb_OYRG9hSL-htWdJwmtDYggK-Adw7VbylQQ93kNSTtSQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/superadmin/user/1/assign/user",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"superadmin",
+								"user",
+								"1",
+								"assign",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiODBiNjBmYmIxMTVlNDZmMDk3ZDU4MDM0ODcwNWNiYjIzMmNmZWY2NzA3YTdmZTBlN2IyZjI3MGY2ZDk3NzEwMDQ2NDE5NGJjNDBiYzM0ZDMiLCJpYXQiOjE2OTAwOTcwODQuNjU0MzYyLCJuYmYiOjE2OTAwOTcwODQuNjU0MzY0LCJleHAiOjE3MjE3MTk0ODQuNjQ5MzA3LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.C3MOC72rE6WE4UTvnmgZKLrAYf-pov1-JxJ9nTWP-A_ea37uJ6NksnaC8ozsMv3qzNi7NouuOiVlaXQq0VcYqHnpjXNdI9PwOyytJSV83qDIUm09AqlNcwwj5rbM5OoFRnEmsZM6dfU-q6XGj6lS8sabuzBetQQwTZJOUsNX8qpLLK3c8b5Ao43xPe8jH_3VCdK961E7QnQ7hEiQzS6QpT56ih1M8y-HUVGe4VFgb27gCW7BsAy9uV9WPsJdBKvSLuTaGwMVsHSymPg_z0vaguZ33H95fewEs84YfOTgsvyytZw67271iBQEqBu_9nv72aAuh7KM0WTxJTq-MCwrHSZWV7WyK7UlSXXZh8lJG_vIF02RChXj1-lQb-pwzX82kdiiXKQLpry-7vfX7OtjucpstOnokadwf7dq1aJFjVok5JSLrpG-oboMLRapWVyzBwcJh4FjEmPVD8dbAY2TywCXNnor5pCHSENw7Fa3p02dTq_QoM6tUcim8dU1WuG5w7f2enV1yAQwu8r428CiWXgNtucwEwqOBpZlTsMwHg3duBVk-A0aX_ypSt_KYkkVCOV5IVNQys4zRzg4HGihn-MFwx8t5JurLLck44TVtYTS_VXvaTK-9tQkRKrNF5fb_OYRG9hSL-htWdJwmtDYggK-Adw7VbylQQ93kNSTtSQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"role\":\"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/superadmin/user/1/remove_role",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"superadmin",
+								"user",
+								"1",
+								"remove_role"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},

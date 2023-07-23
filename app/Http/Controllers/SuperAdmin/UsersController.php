@@ -4,6 +4,7 @@ namespace App\Http\Controllers\SuperAdmin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\Response;
+use App\Http\Requests\RemoveRoleRequest;
 use App\Http\Resources\SuperAdminUsersResource;
 use App\Models\Role;
 use App\Models\User;
@@ -64,9 +65,9 @@ class UsersController extends Controller
     /**
      * remove a role from user
      */
-    public function removeRole(Request $request , User $user)
+    public function removeRole(RemoveRoleRequest $request , User $user)
     {
-        $role = $request->input('role');
+        $role = $request->role;
         $role = str_replace(' ', '_', $role);
         $roleModel = Role::where('name', $role)->first(); // Assuming 'name' is the column storing role names
         $user->removeRole($roleModel->id);
