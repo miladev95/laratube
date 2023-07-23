@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Traits\Response;
 use App\Http\Requests\UpdateProfileRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -9,15 +10,15 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    use Response;
     public function show()
     {
         $user = Auth::user();
-        return view('user', compact('user'));
+        return $this->successResponse(data: $user);
     }
 
     public function update(UpdateProfileRequest $request)
     {
-
         $user = Auth::user();
 
         $name = $request->name;
@@ -30,12 +31,9 @@ class UserController extends Controller
                 'name' => $name,
                 'password' => $password,
             ]);
-            return redirect()->route('profile')->with('success', 'Profile updated');
-
+            return $this->successResponse(message: 'Profile updated');
         } else {
-            return redirect()->route('profile')->with('error', 'Invalid password');
+            return $this->errorResponse(message: 'Invalid password');
         }
-
-
     }
 }

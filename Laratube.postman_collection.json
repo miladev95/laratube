@@ -160,6 +160,80 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Assign Admin Role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiYTllYTFhNjUxZjEzOWUyZmE2OWFmZDBiYjIzMTBlOGFjZjE5ODE3NjU1MzM3ZmRmNzhiMGQxZTAxYzQxNTNkMjY2YzJlMjY4ZGM2Y2U5NmMiLCJpYXQiOjE2OTAwOTkzNDkuOTkwODU2LCJuYmYiOjE2OTAwOTkzNDkuOTkwODU4LCJleHAiOjE3MjE3MjE3NDkuOTg3MTYyLCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.Kx3LKqs2DC43Q-poG5vVjREDQTajaOdtVzGgIM5-3IxOdci3v_zqo4YVYJCJ5xCZmP7Q5HYLdU6xqCcE367VhgdojFNDocElSpucZWJHozAjDoe5azoDrr23Y1cNgMfpa36xbd7KYPd9rOehtZyGdSHaxghFEy1m5lrF2i6P7qDnBkjmYM-VHi9KRGxjXCcHl_BhWbufyyDr34kv93sC8tGcTPGD08cObfjvUKXRLI_M47qZaq0KuMkoKMU9HKHvEbeqkjbIUMEv7uGIW0YhSloDjKiHgpysm-egM9VyYh7sBwJq8XFja-DjtLgi6-eKvxWX8s5CWt-U6xrqqx8sDmfqzvwdZMvOuVqITiuO4hGF_fKUCSHezXXrqqqc9YmXTNghOCAG8QMwPluSDT9hhY7dSsschRvT0lGqV4kO9VpfEAUqFDB4iZBEMLHh1_Csch4OD7tUGhmz8bSsP1MBmd_SEsLRmiUEDCFW01PBijhWS4WqCPxR4s3nPQkouJ7_lK85B6TTIO6P7w_Yb9W8dpAG-2Ho9NuGLqPRFB9S4nC1imfrjLSV1OHpWusWXOja_VZLRqc5riXgTwgKj3C32iqF6ygaUBvQ31gcsl6kEI5jjjAALiRQTrh2xgclO3jul9_UofRtmGnunjC523mjAq3dIfqrrOWziJbg7DbJtb4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/superadmin/user/2/assign/admin",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"superadmin",
+								"user",
+								"2",
+								"assign",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign SuperAdmin Role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiMWNkOTU1OWI3OGQ1NGZlNDc0YTcwODIwZTQ5M2NkMWI2NjkxNTE4OGUyNDc4YTZlNDRlYzVlZjkyZGJkZjNkNTg3ZTViNTZkM2RjNDAyNjciLCJpYXQiOjE2OTAwOTYzMzMuMTYzMDc3LCJuYmYiOjE2OTAwOTYzMzMuMTYzMDc5LCJleHAiOjE3MjE3MTg3MzMuMTU5Nzc5LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.inuz3YjWAcQvjarUFfY1OiEnhvlmRaA3G0bmm7MJcgWok1dJ8-Yo2efzNcdTXZzJzjeO7JRjU4NAJP11LfkStSMfU3sjuXMo_roeCbYtgteeI36hV7cNEN0oJcu_6d9Mad-VmgTMQrldbz4DxSajpjKczTxRX1mv8Fa8E-Tzg8PfuiB3q2NMQbjWn0p8_igAIcJiSBDN8dfyFfzRs4Bxo3n77pdV1MH2p6wDasfCBkrrZscy-5f3t3WiwwzFg0Vf9rrI1CewEJZsSptZrGOBu2TqUWf4w0dEkwhVJS5lje2uXMT44xrV8CeEIIfvOh_qTaPKZWUKM2uwb6AMCLao9Q4jQMl3Oqblp7VtWjMhO5qPtllSKqGUa7tuXPOuWF7WLXC1T6Kx5NqTvreIMSblGzLmlKI51ivSNGzE29Y69Zqml5MRHzhWY2cyQ36lNNs9D5KQmsDtPs-7iRId428nKYMNlPcqQ0I1kQkt4PmPitMLB6Ah9enUVwHiyct7irDdZo-R_VeuxHDxm8l9LrVMLfU7ocKLe9BLKn_8hyqxBj5IAfMVOxRQRhbUil_mt6_R-GgH_K_21g6pt4Q0LaUrTAaNwhWmKvwHgLrRDjEmUO6Oy4s0do14JUL1SsmwpZZyVdvztFOc_OH6Tk8N1lG4CO6gUbWaAkZKXeP6_PZBhj8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/superadmin/user/2/assign/super_admin",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"superadmin",
+								"user",
+								"2",
+								"assign",
+								"super_admin"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},

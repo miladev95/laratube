@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HelpController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SuperAdmin\UsersController;
@@ -32,8 +31,6 @@ Route::middleware('auth')->group(function () {
     Route::group(['prefix' => 'video'], function () {
         Route::post('/upload', [VideoController::class, 'store'])->name('video.upload');
     });
-
-    Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('remove/{video}', [VideoController::class, 'remove'])->name('remove');
 
