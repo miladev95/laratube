@@ -19,7 +19,7 @@ class SuperAdminUsersResource extends JsonResource
             'id' => $this->id,
             'email' => $this->email,
             'name' => $this->name,
-            'role' => $this->roles,
+            'roles' => $this->roles->pluck('name'),
             'email_verified_at' => $this->email_verified_at,
             'created_at' => Carbon::parse($this->created_at)->format('Y-m-d'),
         ];
