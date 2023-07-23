@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use App\Http\Controllers\Traits\Response;
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CustomAuthenticate
 {
@@ -18,7 +19,7 @@ class CustomAuthenticate
     {
         if (! $request->expectsJson()) {
             // For non-JSON requests, let the default behavior handle it
-            return app('auth')->check() ? $next($request) : $this->errorResponse('Unauthenticated',401);
+            return Auth::check() ? $next($request) : $this->errorResponse('Unauthenticated',401);
         }
 
         return $this->errorResponse('Unauthenticated',401);
