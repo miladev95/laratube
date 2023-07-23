@@ -51,14 +51,7 @@ Route::group(['middleware' => 'role:admin,super_admin', 'prefix' => 'admin'], fu
     Route::get('video/{video}/approve',[\App\Http\Controllers\Admin\VideoController::class,'approve'])->name('admin.video.approve');
 });
 
-Route::group(['middleware' => 'role:super_admin','prefix' => 'superadmin'] , function () {
-    Route::get('users',[UsersController::class,'index'])->name('superadmin.users.index');
-    Route::get('user/{user}/remove',[UsersController::class,'remove'])->name('superadmin.user.delete');
-    Route::get('user/{user}/assign/user',[UsersController::class,'assignUser'])->name('superadmin.user.assign_user');
-    Route::post('user/{user}/remove_role',[UsersController::class,'removeRole'])->name('superadmin.user.remove_role');
-    Route::get('user/{user}/assign/admin',[UsersController::class,'assignAdmin'])->name('superadmin.user.assign_admin');
-    Route::get('user/{user}/assign/super_admin',[UsersController::class,'assignSuperAdmin'])->name('superadmin.user.assign_super_admin');
-});
+
 
 
 Route::get('help', [HelpController::class, 'show'])->name('route.help')->middleware('auth');

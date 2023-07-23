@@ -3,16 +3,20 @@
 namespace App\Http\Controllers\SuperAdmin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\Response;
+use App\Http\Resources\SuperAdminUsersResource;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+    use Response;
     public function index()
     {
         $users = User::all();
-        return view('superadmin.users.index', compact('users'));
+        $resource = SuperAdminUsersResource::collection($users);
+        return $this->successResponse(data: $resource);
     }
 
     public function remove(User $user)
@@ -20,31 +24,28 @@ class UsersController extends Controller
         $user->roles()->detach(); // Remove related role_user records
         $user->videos()->delete();
         $user->delete(); // Delete the user record
-        return back()->with('success', 'User ' . $user->name . ' successfully removed');
+        return $this->successResponse(message: "User $user->name successfully removed");
     }
 
     public function assignUser(User $user)
     {
         $userRole = Role::where(['name' => 'user'])->first();
         $user->assignRole($userRole);
-
-        return back()->with('success', 'Role successfully assigned');
+        return $this->successResponse(message: 'Successfully assigned');
     }
 
     public function assignAdmin(User $user)
     {
         $adminRole = Role::where(['name' => 'admin'])->first();
         $user->assignRole($adminRole);
-
-        return back()->with('success', 'Role successfully assigned');
+        return $this->successResponse(message: 'Successfully assigned');
     }
 
     public function assignSuperAdmin(User $user)
     {
         $superAdminRole = Role::where(['name' => 'super_admin'])->first();
         $user->assignRole($superAdminRole);
-
-        return back()->with('success', 'Role successfully assigned');
+        return $this->successResponse(message: 'Successfully assigned');
     }
 
     public function removeRole(Request $request , User $user)
@@ -53,6 +54,6 @@ class UsersController extends Controller
         $role = str_replace(' ', '_', $role);
         $roleModel = Role::where('name', $role)->first(); // Assuming 'name' is the column storing role names
         $user->removeRole($roleModel->id);
-        return back()->with('success', 'Role Successfully removed');
+        return $this->successResponse(message: 'Successfully removed');
     }
 }
