@@ -11,7 +11,8 @@ class AdminChangeVideoStatusRequest extends BaseRequest
     public function rules(): array
     {
         return [
-            'status' => ['required','enum:' . VideoStatus::class],
+            'status' => ['required','in:'.VideoStatus::Pending->getStringValue(true).',' . VideoStatus::Approved->getStringValue(true) . ',' .
+                        VideoStatus::Deleted->getStringValue(true) . ',' . VideoStatus::Rejected->getStringValue(true)],
         ];
     }
 }

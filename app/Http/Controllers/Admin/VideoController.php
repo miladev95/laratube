@@ -24,6 +24,7 @@ class VideoController extends Controller
     public function changeStatus(AdminChangeVideoStatusRequest $request, Video $video)
     {
         $video->status = $request->status;
+        $video->save();
         return $this->successResponse(message: 'Video status successfully changed');
     }
 

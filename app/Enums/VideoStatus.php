@@ -9,13 +9,14 @@ enum VideoStatus
     case Rejected;
     case Deleted;
 
-    public function getStringValue(): string
+    public function getStringValue(bool $toLowerCase = false): string
     {
         return match ($this) {
-            self::Pending => 'Pending',
-            self::Rejected => 'Rejected',
-            self::Approved => 'Approved',
-            self::Deleted => 'Deleted',
+            self::Pending => $toLowerCase ? 'pending' : 'Pending',
+            self::Rejected => $toLowerCase ? 'rejected' : 'Rejected',
+            self::Approved => $toLowerCase ? 'approved' : 'Approved',
+            self::Deleted => $toLowerCase ? 'deleted' : 'Deleted',
         };
     }
+
 }
