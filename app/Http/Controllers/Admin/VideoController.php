@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Enums\VideoStatus;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\Response;
+use App\Http\Requests\AdminChangeVideoStatusRequest;
+use App\Http\Resources\AdminVideosResource;
 use App\Models\Video;
 use Illuminate\Http\Request;
 
@@ -15,10 +17,11 @@ class VideoController extends Controller
     public function index()
     {
         $videos = Video::pending()->get();
-        return $this->successResponse(data: $videos);
+        $videoResource = AdminVideosResource::collection($videos);
+        return $this->successResponse(data: $videoResource);
     }
 
-    public function changeStatus(Request $request, Video $video)
+    public function changeStatus(AdminChangeVideoStatusRequest $request, Video $video)
     {
         $video->status = $request->status;
         return $this->successResponse(message: 'Video status successfully changed');
