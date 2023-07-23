@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\SuperAdmin;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AdminVideosResource extends JsonResource
+class VideosResource extends JsonResource
 {
     public function toArray(Request $request): array
     {

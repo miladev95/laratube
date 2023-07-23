@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\VideoController as AdminVideoController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SuperAdmin\UsersController;
+use App\Http\Controllers\SuperAdmin\VideoController as SuperAdminVideoController;
 use App\Http\Controllers\VideoController as UserVideoController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,8 @@ Route::middleware('authenticated')->group(function (){
         Route::post('user/{user}/remove_role',[UsersController::class,'removeRole']);
         Route::get('user/{user}/assign/admin',[UsersController::class,'assignAdmin']);
         Route::get('user/{user}/assign/super_admin',[UsersController::class,'assignSuperAdmin']);
+
+        Route::get('videos',[SuperAdminVideoController::class,'index']);
     });
 
 

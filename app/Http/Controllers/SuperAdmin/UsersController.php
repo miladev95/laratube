@@ -5,7 +5,7 @@ namespace App\Http\Controllers\SuperAdmin;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\Response;
 use App\Http\Requests\SuperAdmin\RemoveRoleRequest;
-use App\Http\Resources\SuperAdminUsersResource;
+use App\Http\Resources\SuperAdmin\UsersResource;
 use App\Models\Role;
 use App\Models\User;
 
@@ -15,7 +15,7 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::all();
-        $resource = SuperAdminUsersResource::collection($users);
+        $resource = UsersResource::collection($users);
         return $this->successResponse(data: $resource);
     }
 
