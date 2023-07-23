@@ -6,6 +6,7 @@ use App\Enums\VideoStatus;
 use App\Events\VideoUploaded;
 use App\Http\Controllers\Traits\Response;
 use App\Http\Requests\SuperAdmin\StoreVideoRequest;
+use App\Http\Resources\User\VideosResource as UserVideoResource;
 use App\Jobs\NotifyAdminUsersForNewVideoJob;
 use App\Models\Video;
 use Illuminate\Http\Request;
@@ -47,10 +48,9 @@ class VideoController extends Controller
         $this->authorize('update', $video);
 
 
-        $video->title = $request->input('title');
-        $video->status = VideoStatus::Pending->getStringValue();
-        $video->description = $request->input('description');
-
+        $video->title = $request->title;
+        $video->status = VideoStatus::Deleted->getStringValue();
+        $video->description = $request->description;
         $video->save();
 
         return $this->successResponse(message: 'Video updated successfully');
@@ -63,17 +63,16 @@ class VideoController extends Controller
     {
         $this->authorize('remove', $video);
 
-        // delete video from this
-        Storage::disk('public')->delete($video->src);
-        $video->delete();
-
+        $video->status = VideoStatus::Deleted->getStringValue();
+        $video->save();
         return $this->successResponse(message: 'Video removed successfully');
     }
 
     public function videos()
     {
-        $videos = Video::where('user_id', Auth::user()->id)->get();
-        return $this->successResponse(data: $videos);
+        $videos = Video::where('user_id', Auth::user()->id)->where('status','<>','Deleted')->get();
+        $videoResource = UserVideoResource::collection($videos);
+        return $this->successResponse(data: $videoResource);
     }
 
     /**

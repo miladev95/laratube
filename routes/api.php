@@ -33,6 +33,7 @@ Route::middleware('authenticated')->group(function (){
     });
 
 
+    Route::get('remove/{video}', [UserVideoController::class, 'remove']);
     Route::get('/videos', [UserVideoController::class, 'videos']);
     Route::post('/upload', [UserVideoController::class, 'store']);
 

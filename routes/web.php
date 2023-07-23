@@ -26,7 +26,6 @@ Route::middleware('auth')->group(function () {
     Route::group(['prefix' => 'video'], function () {
     });
 
-    Route::get('remove/{video}', [VideoController::class, 'remove'])->name('remove');
 
     Route::get('view/{video}', [VideoController::class, 'view'])->name('view');
 

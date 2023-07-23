@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\User;
+namespace App\Http\Resources;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -20,7 +20,6 @@ class VideosResource extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'url' => $this->src,
-            'status' => $this->status,
             'user' => $this->user->email,
             'created_at' => Carbon::parse($this->created_at)->format('Y-m-d'),
         ];
