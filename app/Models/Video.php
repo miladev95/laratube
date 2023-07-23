@@ -32,11 +32,16 @@ class Video extends Model
 
     public function scopePending($query)
     {
-        return $query->where('status',VideoStatus::Pending->getStringValue());
+        return $query->where('status', VideoStatus::Pending->getStringValue());
     }
 
     public function scopeApproved($query)
     {
-        return $query->where('status',VideoStatus::Approved->getStringValue());
+        return $query->where('status', VideoStatus::Approved->getStringValue());
+    }
+
+    public function likedByUser()
+    {
+        return $this->belongsToMany(User::class, 'likes');
     }
 }

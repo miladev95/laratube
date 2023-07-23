@@ -36,6 +36,9 @@ Route::middleware('authenticated')->group(function (){
     Route::get('/videos', [UserVideoController::class, 'videos']);
     Route::post('/upload', [UserVideoController::class, 'store']);
 
+    Route::get('video/{video}/like',[UserVideoController::class,'like']);
+    Route::get('video/{video}/likes',[UserVideoController::class,'showLikes']);
+
 });
 
 Route::post('/login',[AuthController::class,'login']);

@@ -78,4 +78,15 @@ class VideoController extends Controller
         $video->save();
         return $this->successResponse(data: $video);
     }
+
+    public function showLikes(Video $video)
+    {
+        dd($video->likedByUser());
+    }
+
+    public function like(Video $video)
+    {
+        $video->likedByUser()->attach(Auth::id());
+        return $this->successResponse(message: 'Video Liked');
+    }
 }
