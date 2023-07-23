@@ -40,8 +40,13 @@ class Video extends Model
         return $query->where('status', VideoStatus::Approved->getStringValue());
     }
 
-    public function likedByUser()
+    public function likedByUsers()
     {
         return $this->belongsToMany(User::class, 'likes');
+    }
+
+    public function scopeLikesCount($query)
+    {
+        return $query->withCount('likedByUsers');
     }
 }

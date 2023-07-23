@@ -56,10 +56,14 @@ class VideoController extends Controller
         return $this->successResponse(message: 'Video updated successfully');
     }
 
+    /**
+     * remove a video
+     */
     public function remove(Video $video)
     {
         $this->authorize('remove', $video);
 
+        // delete video from this
         Storage::disk('public')->delete($video->src);
         $video->delete();
 
@@ -72,6 +76,9 @@ class VideoController extends Controller
         return $this->successResponse(data: $videos);
     }
 
+    /**
+     * increment view of a video
+     */
     public function view(Video $video)
     {
         $video->incrementViews();
@@ -79,14 +86,25 @@ class VideoController extends Controller
         return $this->successResponse(data: $video);
     }
 
+    /**
+     *  Show like counts of a video
+     */
     public function showLikes(Video $video)
     {
-        dd($video->likedByUser());
+        $videoWithLikesCount = Video::likesCount()->find($video->id);
+        $likesCount = $videoWithLikesCount->liked_by_users_count;
+        return $this->successResponse(data: $likesCount);
     }
 
+    /**
+     * Like a video
+     */
     public function like(Video $video)
     {
-        $video->likedByUser()->attach(Auth::id());
+        if ($video->likedByUsers()->where('user_id', Auth::id())->exists()) {
+            return $this->errorResponse(message: 'You already liked this video',code: 422);
+        }
+        $video->likedByUsers()->syncWithoutDetaching(Auth::id());
         return $this->successResponse(message: 'Video Liked');
     }
 }
