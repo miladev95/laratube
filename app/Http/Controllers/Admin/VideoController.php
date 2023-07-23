@@ -7,9 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\Response;
 use App\Http\Requests\Admin\ChangeVideoStatusRequest;
 use App\Http\Requests\Admin\RejectVideoRequest;
-use App\Http\Resources\AdminVideosResource;
+use App\Http\Resources\Admin\VideosResource;
 use App\Models\Video;
-use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {
@@ -18,7 +17,7 @@ class VideoController extends Controller
     public function index()
     {
         $videos = Video::pending()->get();
-        $videoResource = AdminVideosResource::collection($videos);
+        $videoResource = VideosResource::collection($videos);
         return $this->successResponse(data: $videoResource);
     }
 

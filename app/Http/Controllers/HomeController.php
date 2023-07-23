@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Traits\Response;
+use App\Http\Resources\User\VideosResource as UserVideoResource;
 use App\Models\Video;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,7 @@ class HomeController extends Controller
     public function index()
     {
         $videos = Video::Approved()->get();
-        return $this->successResponse(data: $videos);
+        $videoResource = UserVideoResource::collection($videos);
+        return $this->successResponse(data: $videoResource);
     }
 }

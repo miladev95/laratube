@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 class VideoController extends Controller
 {
     use Response;
+
     public function index()
     {
         $videos = Video::all();
