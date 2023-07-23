@@ -23,7 +23,7 @@ class AuthController extends Controller
             return $this->errorResponse(message: 'Email or password is incorrect', code: 401);
         }
 
-        $token = $user->createToken('laratube')->accessToken;
+        $token = $user->createToken(env('TOKEN_NAME'))->accessToken;
         return $this->successResponse(message: 'Successfully logged in', data: ['token' => $token]);
     }
 
@@ -35,7 +35,7 @@ class AuthController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
-        $token = $user->createToken('laratube')->accessToken;
+        $token = $user->createToken(env('TOKEN_NAME'))->accessToken;
         return $this->successResponse(data: ['token' => $token], code: 201);
     }
 
