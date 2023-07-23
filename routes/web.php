@@ -23,9 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::put('update/{video}', [VideoController::class, 'update'])->name('video.update');
 
 
-    Route::get('/videos', [VideoController::class, 'videos'])->name('user.videos.index');
     Route::group(['prefix' => 'video'], function () {
-        Route::post('/upload', [VideoController::class, 'store'])->name('video.upload');
     });
 
     Route::get('remove/{video}', [VideoController::class, 'remove'])->name('remove');

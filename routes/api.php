@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Admin\VideoController;
+use App\Http\Controllers\Admin\VideoController as AdminVideoController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SuperAdmin\UsersController;
+use App\Http\Controllers\VideoController as UserVideoController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('authenticated')->group(function (){
@@ -22,11 +23,15 @@ Route::middleware('authenticated')->group(function (){
 
 
     Route::group(['middleware' => 'admin.or.superadmin', 'prefix' => 'admin'], function () {
-        Route::get('videos', [VideoController::class, 'index'])->name('admin.videos.index');
-        Route::post('change_status/{video}', [VideoController::class, 'changeStatus'])->name('admin.videos.change_status');
-        Route::post('video/reject',[VideoController::class,'reject'])->name('admin.video.reject');
-        Route::get('video/{video}/approve',[VideoController::class,'approve'])->name('admin.video.approve');
+        Route::get('videos', [AdminVideoController::class, 'index']);
+        Route::post('change_status/{video}', [AdminVideoController::class, 'changeStatus']);
+        Route::post('video/reject',[AdminVideoController::class,'reject']);
+        Route::get('video/{video}/approve',[AdminVideoController::class,'approve']);
     });
+
+
+    Route::get('/videos', [UserVideoController::class, 'videos']);
+    Route::post('/upload', [UserVideoController::class, 'store']);
 
 });
 
