@@ -234,6 +234,362 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Show All Videos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiZjAxNzJjOGJiNDJjM2M4NzNmZDcyYWU4YmNlNmQ5MWZiNzUxYTkxMGUyYjE4ZmFhMWMyMjE1YzZjM2Q4ZmJkMWI5MDFkZmVkMDNhOWQ4NDciLCJpYXQiOjE2OTAxMDI0MTAuOTQ3ODk5LCJuYmYiOjE2OTAxMDI0MTAuOTQ3OTAxLCJleHAiOjE3MjE3MjQ4MTAuOTQyMDcyLCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.Ap96cbe3RCIWQkBYQEQa1E36s1CJUqLiWUtIuAtoMk2DqlelOC9xs2zXd-fx0mzd8oKVjni5rIDTUSgg2BzNIOQ1cKUkFKhs0z_CbYgM6m6xSaFDF3U_SYQBtDyMw1d133xqcNz1OPnrY1WsarXxCegU-enMv8K1Sx-_xdqz2WTmCnZRThUKLknyF44f7lFLVAU96HoiK1uoTlqCJKNSjFtDN-9HkMMbybWQjHyRYlCah9fjLYlKuEBID9sKHcs9dfq1VKPK1NCHxidjAaBmgQxTR4lQIbp_3icsdyqKRYkt6pfFTjd_hQe-r5JB279Y3NTKzXiBuMv_gvHQ_axRFbc7ZhuwGM0yMUyokv638JkG1oEmciSV4Osb9fdiaJPuOMtUCxitR-ZF7oHhwBBJOmKiQG7sWQs80rVfNLot-SsP1MlzxBImvAp2AYqgr5J0LY5-vO-nMkOibBPqIvyysN3LR_Exv9GDei9Ty-G6mNiSxUwP73vXlZ2XN0wcy5atCHBJ6rAp9wCkc1i3ZYtgDerP2UwyQRdZoQ6mut7DoWbpLmbGkiHp_ZVFHzoJtzLP7J_afinFuPqdroI6Aa0trT9rADa22eMEx2LNKwokbU2QkP4H6FxvCv93fQnkTddTwdy5utkK70KSuxyKZaHh457fz0I7oOYkOxWR0-gZd10",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/superadmin/videos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"superadmin",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Show Pending Videos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYzVlY2RmNWM1MTFmMzVlMGE4MjZhZTQzZjYzMzk4MGRlMTY1NTJlY2ExNjRhMTAyZWE1ZTM3NDMyYWM1MWVhMzZhM2U4ZjRjOTAwYzViN2EiLCJpYXQiOjE2OTAxODA0MTMuMzQ2NDkzLCJuYmYiOjE2OTAxODA0MTMuMzQ2NDk1LCJleHAiOjE3MjE4MDI4MTMuMzQyNDg5LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.TEgGtYBrw2yy1JBY_FkqrOmC2zSS-0KjXxmuQMJIx06qe-1Y2U-nUF2606YGpT6BSCfTZqaOb_8INskCM2lq-ge5s6gTxZN7GAxfnesT5xuscRfb5P2QKB9BUKzcocHcI-LL_Ce8jI9ZKiluW0cXIhwjMa9SHZt6e3Q_Y2-iPfOnMzkOhTl6FSDkt8ESVSWWNuOWZRyeRmjGVM8Z7qpYQDPNqQ9zF1VFNDYKKetwxBt33roRt_3IPC5U9fl94pqUbIc5vimo8UGvp8OD0-Oy5lrmYqD2nLdSGsVe1qUz9uxMGG2_Gf0-0qlK2plA7d2BaK3a7MmzEyHRnZaqOvnie42EiE1PI-zkeuQOj3YWe93psIvYhIkRV0WFGdQhz64j8slXEkJik76Ma5VtROMqgkJW4yMNAGbp4t1hx0_H9adlf06uBCSW9fo2XM2QQAhLcqtMqlX4JhGRM_Q6F57IhqtZ1kI3db6EXYisPJUmj-I82YVu_DoC5CaKEn9TgusdDJOPC-bBDhvmVI2os2jTZNtXGjSiTbjaKrIhpYojnnG_mbwE-zEoZjWqqt12X6C12acRi0pFqjuu4BPT_Lidivs29OBf0exhy6aGcVp7l75WXrSf2_O7DZvJ-HYLKJr0AQ7yfM7WR2AGgK3gg1Tvm7InG-fXAOgcx0w83qp0MYE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/videos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjIyNWEzMDA4OTc4MTAyYjJlNDYzY2JlMTU3Y2RmZTkwOTY5NjNiYThiNGJlMzFlNmJjODFiZTY5N2I3MWY0Y2YzZmJhNWE4NDEyZTIyMzYiLCJpYXQiOjE2OTAxODEwMjkuMDMyNTExLCJuYmYiOjE2OTAxODEwMjkuMDMyNTEzLCJleHAiOjE3MjE4MDM0MjkuMDI5MTAyLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.dnnkUGJ0k5CTBa84t1EKHhs6_72GvA7m5gtAAcFAaggj_9wlV727R52TOSSwwLfP34typlaMTCm40GcxpTUsVm441Dkf8TULpioz1cpWa2ooVIqJ41np384E05G1ClMu6oRzD5rQ03_VMSN95VPgKbM_mqcflSa7m84GQ1t3HvyCdmeBMgTp8nKDSBv6bMDz8OzMC6lbAeHMHN1L6ap8j3DHTAFpRb2JkYiqZy6TsIujbXJh__csHLbU_ykPJl1yfvvDvlrAZ992HIcjvBJkIYGmByUaLbiVaOeFxAhg-DftX5GYUGQk5HFYMWn_GXyA4TEQ991sVQKkAgWVXg1A28TNABagSNwKMQildzBbaH5YCKC8j0PMtCmi_f6WmCetj8M1VVNPlDHEjcWVZnop_BU-LXTLiDPpBicEhbrh7FXZHI0Jq_6P9iiats7OMIBw0w_UFK0v64mGLTbc6Hi9O0qS22PDMA20zQtEnw5yg-Ol089BXieRBgUB017DsxIXpobN2j4Yw2v0mlSl1O9M-DAHfVY0dhIAeer6FQohSuAMKvPzcRV25pXCVNbcYkYPgXjgkFrVruSGAJaK-ChRE1YvFYIVpWrYUEpM7taG8NYxXYpJtEcIzQmnnkI8_zyFn4WbuXMLHFlrYRhRz042T_les8SWb3HM_xxn7tSIXeM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/comment/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"comment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Video Status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYzVlY2RmNWM1MTFmMzVlMGE4MjZhZTQzZjYzMzk4MGRlMTY1NTJlY2ExNjRhMTAyZWE1ZTM3NDMyYWM1MWVhMzZhM2U4ZjRjOTAwYzViN2EiLCJpYXQiOjE2OTAxODA0MTMuMzQ2NDkzLCJuYmYiOjE2OTAxODA0MTMuMzQ2NDk1LCJleHAiOjE3MjE4MDI4MTMuMzQyNDg5LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.TEgGtYBrw2yy1JBY_FkqrOmC2zSS-0KjXxmuQMJIx06qe-1Y2U-nUF2606YGpT6BSCfTZqaOb_8INskCM2lq-ge5s6gTxZN7GAxfnesT5xuscRfb5P2QKB9BUKzcocHcI-LL_Ce8jI9ZKiluW0cXIhwjMa9SHZt6e3Q_Y2-iPfOnMzkOhTl6FSDkt8ESVSWWNuOWZRyeRmjGVM8Z7qpYQDPNqQ9zF1VFNDYKKetwxBt33roRt_3IPC5U9fl94pqUbIc5vimo8UGvp8OD0-Oy5lrmYqD2nLdSGsVe1qUz9uxMGG2_Gf0-0qlK2plA7d2BaK3a7MmzEyHRnZaqOvnie42EiE1PI-zkeuQOj3YWe93psIvYhIkRV0WFGdQhz64j8slXEkJik76Ma5VtROMqgkJW4yMNAGbp4t1hx0_H9adlf06uBCSW9fo2XM2QQAhLcqtMqlX4JhGRM_Q6F57IhqtZ1kI3db6EXYisPJUmj-I82YVu_DoC5CaKEn9TgusdDJOPC-bBDhvmVI2os2jTZNtXGjSiTbjaKrIhpYojnnG_mbwE-zEoZjWqqt12X6C12acRi0pFqjuu4BPT_Lidivs29OBf0exhy6aGcVp7l75WXrSf2_O7DZvJ-HYLKJr0AQ7yfM7WR2AGgK3gg1Tvm7InG-fXAOgcx0w83qp0MYE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\" : \"approved\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/change_status/39e0de9a-af23-4db6-b487-837669a44ef6",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"change_status",
+								"39e0de9a-af23-4db6-b487-837669a44ef6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reject Video",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiNjE3YmVjNDM1MWQ1ZGY2YThiZDAyZWQ3MjRjYzNmZjQ4NTU0OTI5NjAyNmY0NDI3OTc1ZGY5YTRjZTQ3ZGEyNjM5ZmQxMDgyM2UwOTA2MjYiLCJpYXQiOjE2OTAxMDA3MTguMjIwNTA2LCJuYmYiOjE2OTAxMDA3MTguMjIwNTA5LCJleHAiOjE3MjE3MjMxMTguMjE2Njg0LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.GmptkSccJ2D4Z1yBuqt8P1MOea6fBKdNIEXo2y7DL_Qnzw4m5qAPNnl9HkOMbqwqYBiU8AJro_-59EeIAKo1RpyO1kK-jlm9GKZxsbc4SzUBHaNyvRgQbrYR0nwZ9iPwBcWNF8dx1KeY9-rURJqtbUZZILnguCG31-1gEMTpzQnU3HFTWQk66QidUo5DcvlFwlLJ2EeGm6WVmIGqa0SvJGWe5qBu5q2_kMK4kEDOb8qHgl5PIpX0Y7Wu4KVrYwGAPcg4TCfYpJ6pT7XNzkHOG-2ZELdXlWtrQBk8QVVRL98QAL7La_aTmNo77Qdr9CWm5OhzinSOJdtdrN_9ERRcqtYJWi3K-Q-4jRFDDDE7zVVVjlrBcKdPOp9M4mlSkw_YUNXWzYH5nnQ38ZZUm6AJ8qGB0kJkUNcFEmknj3YilIIrSJGifpEL1nOgI3tuC0XqWanwIcJI0LUBLddji37F_mgRglfkLJmaY_jIsZWGgBLxh3TJgMoYldbHefJy7fbTgMmpn_4rNn6lX4PD0feMeBdopKWBcZMgsA4WEg4CsQnFoUP9lD_mBUsmAvueFxOm59gVjPlAiGDsPGmCYsmHkZz69kEpNwdbxXlK3ZKTYb4TZiE3dZXoWlfod0vX7WEOe7hIzvgBTrHwLX1kzr5yhJA1Fr9F3b4q3FfQsyGfXas",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"reason\": \"not playing\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/video/3fe3f5de-d2e9-4d33-94d7-94ccf1e78f21/reject",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"video",
+								"3fe3f5de-d2e9-4d33-94d7-94ccf1e78f21",
+								"reject"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Videos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODI5ZDMzYmVlNzY4M2ZjN2QyODk2M2VkODk4YTM5YTNkYzUzNDUzMDZiYzQzYjc3OTM4YTk5YTExMjUxNDliZDRmYTljZTU1NTFhZjVlNDAiLCJpYXQiOjE2OTAxODEwNjMuMjY5MDQsIm5iZiI6MTY5MDE4MTA2My4yNjkwNDIsImV4cCI6MTcyMTgwMzQ2My4yNjI1MzUsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.MYFRwKTREbXvvlKjkUccBjpS_rfcsHtwikzi0IUyjiAGrlT1hBJ5Tn5rJ_Oqe5QJPVENzFDz8kmzI6OgfOTUFX1Iy8u2tP530pVByDvSu7HthDCXPcjDXXBIQuadYRXmouq3EYCM90M8ls11o76f050Gisu4FFX_1MHO2jAqk_qGgmJ5T4usrlJ9DXgxuOYMhLu6d9gp0g53fJrqhYXdDmOLhqVmaPIHdHvZzLGaEfsBltqaBlWw9eGDqzNAZxmoJAs408QnzQ2RJ3bIdBMff3n1JWdth2Kg0bUiuAWyqRelk-zJ43rzq-2vEOnGZ3TPmSEqjD5CULVSrpgsOSHxfrXDUWiVxp78WpxB2q_XxINS28PsDiZmS3fpqmBfAOmpZok-IRcdjl48IBSG-wYYlT23bP5ZJrVKBSD_f8gEtpJ3Up6u4SkLLx0WTjhGSgfEO6xGW0mepBOtqkMqkRL15aOhafzUkUarfgu1QST4V5oAXZbuxlyF6cq7znVvU3GIynmTPHOiJSb0jMj_eQPD-TE5Z-TnDkIXwPty0B0tRvIZmQSM6vQpnoKKSUd1aYhK6dt0jCTGEf7mYKN3faLA1O4HglOAcXpuBfMLM6EpQyLk6mJt1iDxvJ7V2ysKoarFY95suqpQDDbi021vsm9BSUr_czBxOZ1dtz8GxlFZljc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/videos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Video",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNDhlY2YyNDU4NjNjNjYyNGY4YzI0ZTdiMGMwNDUxOGYyN2M2MjBmY2FiYjY1Y2VhNDQ0YTY4NmJmZDY2ZTBiMGY5MTk3Yzc4N2QxYmE4MjgiLCJpYXQiOjE2OTAxMzk0NzIuMTE5NjQ2LCJuYmYiOjE2OTAxMzk0NzIuMTE5NjQ4LCJleHAiOjE3MjE3NjE4NzIuMTA4MTM4LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.ETI2DlloquTRSBnkJqCTWns1Eax7O9gkxXqNNmDTu0ZVaO0_gGY2NkXZ3O-gp5y84aDJhqpMvwHteHYRDhAjLs_cEx6HFeu3_gFzMD3VAKjVKARdQAZJ0cuz-oZ7E8XLYKV0SB8LGKKxaquHtrXtHIWW7RSGDby5krkXfd5U5CDpoE4BT60Xs6JA2yxtfXDQ5MWbHvpuWAGkv-LtVt9uTumOQGVhktfMLfB6Hzwp0-6w6lgTOh8jpLTpfvLt1vLqaVNgxGlYZNsg1yicbcnsy1yrd--31IKxAFG5crSbedAKesMFnRtkAPG0GoJirROLv914LNEgYcp3Uzva8BOIuP5nXdP6d-XPTotCfStSF5vo_o5sw5coAhVgO3fFQ4DnzpGIKtAPVMlkpfl8C6mHkRHhcyGMhoGL4G5eB1HJOF1f03oo4k4b8bR-bDrbjLjR7Pnu3nYEa6-ZKA_X6wKQCMuWAb7RScRdQaj0Yk6ILhFPtAi78l0HAJMyC_FI9axXFeRAX1FTpLH_a2OKBHxLbO8o70bOdB87QyD5JO_KFRhAsS0qcrXqgXwlhuw_sSpEHhhu-tp0OioZEPjUQzgRC6t4aKW7vmROSpbRSE948EvSiLjc_JhteriYsh7Ix5BXGv9k4oGdwrVn_vBZSh9-deQblKAN48mED0Ugq2JpK7M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/view/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"view",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Video",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiNjE3YmVjNDM1MWQ1ZGY2YThiZDAyZWQ3MjRjYzNmZjQ4NTU0OTI5NjAyNmY0NDI3OTc1ZGY5YTRjZTQ3ZGEyNjM5ZmQxMDgyM2UwOTA2MjYiLCJpYXQiOjE2OTAxMDA3MTguMjIwNTA2LCJuYmYiOjE2OTAxMDA3MTguMjIwNTA5LCJleHAiOjE3MjE3MjMxMTguMjE2Njg0LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.GmptkSccJ2D4Z1yBuqt8P1MOea6fBKdNIEXo2y7DL_Qnzw4m5qAPNnl9HkOMbqwqYBiU8AJro_-59EeIAKo1RpyO1kK-jlm9GKZxsbc4SzUBHaNyvRgQbrYR0nwZ9iPwBcWNF8dx1KeY9-rURJqtbUZZILnguCG31-1gEMTpzQnU3HFTWQk66QidUo5DcvlFwlLJ2EeGm6WVmIGqa0SvJGWe5qBu5q2_kMK4kEDOb8qHgl5PIpX0Y7Wu4KVrYwGAPcg4TCfYpJ6pT7XNzkHOG-2ZELdXlWtrQBk8QVVRL98QAL7La_aTmNo77Qdr9CWm5OhzinSOJdtdrN_9ERRcqtYJWi3K-Q-4jRFDDDE7zVVVjlrBcKdPOp9M4mlSkw_YUNXWzYH5nnQ38ZZUm6AJ8qGB0kJkUNcFEmknj3YilIIrSJGifpEL1nOgI3tuC0XqWanwIcJI0LUBLddji37F_mgRglfkLJmaY_jIsZWGgBLxh3TJgMoYldbHefJy7fbTgMmpn_4rNn6lX4PD0feMeBdopKWBcZMgsA4WEg4CsQnFoUP9lD_mBUsmAvueFxOm59gVjPlAiGDsPGmCYsmHkZz69kEpNwdbxXlK3ZKTYb4TZiE3dZXoWlfod0vX7WEOe7hIzvgBTrHwLX1kzr5yhJA1Fr9F3b4q3FfQsyGfXas",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/remove/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"remove",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Video",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYmQ2MWJhYTY5Njc3OWVjNzY0YWQwOGY4OGMwMGI1ZmIzNDVjNmEyZGViMzI0MTRkOTBiNzg5YjkyMTAyMWUzMDBhNWU0MTlhOWQwMzc2ZmYiLCJpYXQiOjE2OTAxODEwMDEuMjM2NjQzLCJuYmYiOjE2OTAxODEwMDEuMjM2NjQ1LCJleHAiOjE3MjE4MDM0MDEuMjMyNzE2LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.QPw8CXbR8L3Al0Imo261haQqjZDbjrM7mKSv3hWIl4ti3hPqQZZhRpG9MrHwPG4ECSKwaEld8-PPNZkel-7E-qKkMvFDjQYFbB21m1KodSnjH49a4EYN4zw1796gPYmkbneMEpmv5iWSduIcXFPJhNOiexTHabKyEa2AMUvioxc3XBT9v8cBB_EIOGehEOB0XJe-GK0WJZRz3YIGfvUcTLr6Uu8RMDCRFmbaYh2zU2NahQip-ZprEybzmDJLnb4zxdYN3C_CVe2_IKR46Cybb0He8g9HCBlSvsBz5BdgROyTk1Qi2zrJKLlUb4r7bZfdh_B2os9iDAHeLoAsn0JERinJaSjrjmOCHXYoC9P3zqtHbz86w-bTUDX9MmucOwIdbgW7MjAPviMsZ7QgNK0u7kbjkf_0hoaWMAp_emJ9Oq0FbidaJlJD-Xu8lKYflv5NZOw-Km5NlmHZ8XSlkk2HPpNfKg8aZBlbbb-46zISoMckf3sYJYf0G1_hck1tDuYDIFbkZ3T2An617FjszDu87myq45XElYBHeZptTdS9UCRVAabLeiJEu1UOnyv74TumdLxO-bvXt5g6TSlRkgzLczrVEIRt7O-9kMNBDw_waDYO2S4pDnEDv9vywsb4hMc4pq1DnQc-MrPCt4jhZU2QMwzAPl7g7wO8m4zu8VKpQLU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "this is test title",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "this is test description",
+									"type": "text"
+								},
+								{
+									"key": "video",
+									"type": "file",
+									"src": "/home/milad/Pictures/Screenshots/Screenshot from 2023-07-23 16-24-38.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/upload",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"upload"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -244,7 +600,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\":\"superadmin@example.com\",\n    \"password\": \"123\"\n}",
+					"raw": "{\n    \"email\":\"user@example.com\",\n    \"password\": \"123\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -295,6 +651,16 @@
 		{
 			"name": "Home",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODdkOGY5NzdmMWVjNDcyNDIzMGE2N2I0MDRhOTg5YzhhZWU2Zjg4NTg1NjFiZmYyYjBmYmE2ODEwYzE2ZGY2Y2MyYTIzMjZmOTRkNTE1ZTAiLCJpYXQiOjE2OTAxODAzNTcuNDQxMzg5LCJuYmYiOjE2OTAxODAzNTcuNDQxMzkxLCJleHAiOjE3MjE4MDI3NTcuNDM4NDEyLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.a3xBpQMuwAAIlHzXuN4GRc71PO42PGNvvbxfEbE0-QiuE9XReksOTj1Z8tEZhoehp_UeF2mcO2qlABlm_aqI1XFEOBsa2c2yPl2un9_bXAGiWzMlg3OiT-H1XP82vz6Q7E5pAIzOX2rtm3Up_I1xXp85rS9ePRVM81UD6nwPod0fsTD-bnvAm8ONPBgPo5GLg_26ACLh6VHE8RSwkOTqreLjpXNavfvC-vWfSmWM7CGHnR-Ali1EVZj44a7EHoFpPnIjmQVph_djkWNGGfyBjbrPGPjzX54C3CmGEKgbpvTRxFVjCDJ6vgQUzzBqXMV7RNMgnW22cxyMF-91IkyOwFutv_FbYFGRZONxEL-In0AAIS2GSvpI_0pA8TEk6W1UES3saopV587VS0QQ_-9M9o_TUDyVOyz6jPquKN9upLdUS2Usz3TR1Bqz00RILEUeWAd7rC7iVZFrUfCeNeyU4fArdCKFPZEaAsT23Wo08qQVn2-t6oPD1hz3_MTOwBj3hN9rMW3wX9qI88TOr8w5SXUoacdK0XEqdR-QODSKPq8TJGHrkg6n0QkAD4x0NYvdwsAe-OkTPRIA1OqolbkYHP0PdWdbUQFc0KPP-2S14cJrw-auzAquPatcGMkKLs89cft6yEEhuVvDfrLje8owti9gSZVmDok7EJ_6o2umkCs",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -342,6 +708,120 @@
 					"path": [
 						"api",
 						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Comment On Video",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODI5ZDMzYmVlNzY4M2ZjN2QyODk2M2VkODk4YTM5YTNkYzUzNDUzMDZiYzQzYjc3OTM4YTk5YTExMjUxNDliZDRmYTljZTU1NTFhZjVlNDAiLCJpYXQiOjE2OTAxODEwNjMuMjY5MDQsIm5iZiI6MTY5MDE4MTA2My4yNjkwNDIsImV4cCI6MTcyMTgwMzQ2My4yNjI1MzUsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.MYFRwKTREbXvvlKjkUccBjpS_rfcsHtwikzi0IUyjiAGrlT1hBJ5Tn5rJ_Oqe5QJPVENzFDz8kmzI6OgfOTUFX1Iy8u2tP530pVByDvSu7HthDCXPcjDXXBIQuadYRXmouq3EYCM90M8ls11o76f050Gisu4FFX_1MHO2jAqk_qGgmJ5T4usrlJ9DXgxuOYMhLu6d9gp0g53fJrqhYXdDmOLhqVmaPIHdHvZzLGaEfsBltqaBlWw9eGDqzNAZxmoJAs408QnzQ2RJ3bIdBMff3n1JWdth2Kg0bUiuAWyqRelk-zJ43rzq-2vEOnGZ3TPmSEqjD5CULVSrpgsOSHxfrXDUWiVxp78WpxB2q_XxINS28PsDiZmS3fpqmBfAOmpZok-IRcdjl48IBSG-wYYlT23bP5ZJrVKBSD_f8gEtpJ3Up6u4SkLLx0WTjhGSgfEO6xGW0mepBOtqkMqkRL15aOhafzUkUarfgu1QST4V5oAXZbuxlyF6cq7znVvU3GIynmTPHOiJSb0jMj_eQPD-TE5Z-TnDkIXwPty0B0tRvIZmQSM6vQpnoKKSUd1aYhK6dt0jCTGEf7mYKN3faLA1O4HglOAcXpuBfMLM6EpQyLk6mJt1iDxvJ7V2ysKoarFY95suqpQDDbi021vsm9BSUr_czBxOZ1dtz8GxlFZljc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"body\":\"this is my test comment\"    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/video/61249b9c-fd00-491e-8128-6316d48fe2df/comment",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"video",
+						"61249b9c-fd00-491e-8128-6316d48fe2df",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Like Video",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiZmFlMjM5ZmViNTMwOTkyZDcwOTIyOTk3ZjgwMzJmNzlhOWQ1ZjVhM2Q5NzIxMDc0NTIzMzliYWUyNzNiYTk2YWZkNWQ1YmRjZTRkYjI2OGMiLCJpYXQiOjE2OTAxMDgyMzMuMTU4NzEyLCJuYmYiOjE2OTAxMDgyMzMuMTU4NzE0LCJleHAiOjE3MjE3MzA2MzMuMTU1ODAxLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.QM1zaUlktZ5KGp6hM1yz42T-WwHKKxIT7-Z7IB_agNxqZsb7tvkxdXIrr3tw23zk3yqqYKCSA15Wb5XbeBfQZMKyWhfTUtStSN9FcrmdxJYHkjuTghZMr1ZZ9Xg78W35zlkhCx-g-qQzL_33ldrvrPsE9n_1dyet0u-lVyCXvGzb5CY1aK3NjkwZBRFCnlh4JfXXssstSS_zLm3OQcsPoaooWoPLMlnHo3D38IqqZRxtUoVju76EvqWpdoj-sghpuLAgqZ3DU8wTIf6aliEwJcyC5gAGsq-AJzB1d1PQlyfBL_Oaspdlz_UfnDewA_H0qH0Cuc5lvDF4GanghXA2z9-Wd92DNmR9y2erqBhAogjQ1SulcexlIJkofXXseaKZUKJXoDWa_EtA6L3gFJ46EDZQOaijPqsinA9snIN2hZZGy9fmy_JFtIxseBiLjfWed4ks8916W6ytVAGZe9fvnPCY286jCF7EeAtacxwA4yfo5XqBCKRf1Kqgh0fbLQuPDRtO3llD1wfkLdXT3oaP2RCQwuBYNcWYdGGvdtveNurGBiFE0vPGIbYqX5HxRqZVKKa3oNGlmLFtRAi_1q4Iz_PWdRKPvE861TqeTdn9F4mfZ05bjKw_B094atLFzVNW7-jXSbNVsOAtP0-eDaMH-E2h-eEqcfPUjUZQuYVQ4J0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/video/dd2ef8a1-d922-4911-be23-8d37fb365bdf/like",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"video",
+						"dd2ef8a1-d922-4911-be23-8d37fb365bdf",
+						"like"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show Video Likes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiZmFlMjM5ZmViNTMwOTkyZDcwOTIyOTk3ZjgwMzJmNzlhOWQ1ZjVhM2Q5NzIxMDc0NTIzMzliYWUyNzNiYTk2YWZkNWQ1YmRjZTRkYjI2OGMiLCJpYXQiOjE2OTAxMDgyMzMuMTU4NzEyLCJuYmYiOjE2OTAxMDgyMzMuMTU4NzE0LCJleHAiOjE3MjE3MzA2MzMuMTU1ODAxLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.QM1zaUlktZ5KGp6hM1yz42T-WwHKKxIT7-Z7IB_agNxqZsb7tvkxdXIrr3tw23zk3yqqYKCSA15Wb5XbeBfQZMKyWhfTUtStSN9FcrmdxJYHkjuTghZMr1ZZ9Xg78W35zlkhCx-g-qQzL_33ldrvrPsE9n_1dyet0u-lVyCXvGzb5CY1aK3NjkwZBRFCnlh4JfXXssstSS_zLm3OQcsPoaooWoPLMlnHo3D38IqqZRxtUoVju76EvqWpdoj-sghpuLAgqZ3DU8wTIf6aliEwJcyC5gAGsq-AJzB1d1PQlyfBL_Oaspdlz_UfnDewA_H0qH0Cuc5lvDF4GanghXA2z9-Wd92DNmR9y2erqBhAogjQ1SulcexlIJkofXXseaKZUKJXoDWa_EtA6L3gFJ46EDZQOaijPqsinA9snIN2hZZGy9fmy_JFtIxseBiLjfWed4ks8916W6ytVAGZe9fvnPCY286jCF7EeAtacxwA4yfo5XqBCKRf1Kqgh0fbLQuPDRtO3llD1wfkLdXT3oaP2RCQwuBYNcWYdGGvdtveNurGBiFE0vPGIbYqX5HxRqZVKKa3oNGlmLFtRAi_1q4Iz_PWdRKPvE861TqeTdn9F4mfZ05bjKw_B094atLFzVNW7-jXSbNVsOAtP0-eDaMH-E2h-eEqcfPUjUZQuYVQ4J0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/video/dd2ef8a1-d922-4911-be23-8d37fb365bdf/likes",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"video",
+						"dd2ef8a1-d922-4911-be23-8d37fb365bdf",
+						"likes"
 					]
 				}
 			},
