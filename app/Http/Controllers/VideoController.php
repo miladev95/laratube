@@ -18,6 +18,9 @@ class VideoController extends Controller
 {
     use Response;
 
+    /**
+     * upload video
+     */
     public function store(StoreVideoRequest $request)
     {
         if ($request->hasFile('video')) {
@@ -39,7 +42,7 @@ class VideoController extends Controller
 
             return $this->successResponse(message: 'Video uploaded successfully');
         } else {
-            return $this->errorResponse(message: 'No video fille provided', code: 422);
+            return $this->errorResponse(message: 'No video file provided', code: 422);
         }
     }
 

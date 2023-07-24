@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\CommentController as AdminCommentController;
 use App\Http\Controllers\Admin\VideoController as AdminVideoController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CommentController as PublicCommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SuperAdmin\UsersController;
 use App\Http\Controllers\SuperAdmin\VideoController as SuperAdminVideoController;
@@ -30,12 +32,17 @@ Route::middleware('authenticated')->group(function (){
         Route::post('change_status/{video}', [AdminVideoController::class, 'changeStatus']);
         Route::get('video/{video}/approve',[AdminVideoController::class,'approve']);
         Route::post('video/{video}/reject',[AdminVideoController::class,'reject']);
+        Route::delete('comment/{comment}',[AdminCommentController::class,'destroy']);
     });
 
 
+
+    Route::post('video/{video}/comment',[PublicCommentController::class,'store']);
+
+
     Route::get('remove/{video}', [UserVideoController::class, 'remove']);
-    Route::get('/videos', [UserVideoController::class, 'videos']);
-    Route::post('/upload', [UserVideoController::class, 'store']);
+    Route::get('videos', [UserVideoController::class, 'videos']);
+    Route::post('upload', [UserVideoController::class, 'store']);
 
     Route::get('view/{video}', [UserVideoController::class, 'view']);
 
@@ -44,8 +51,8 @@ Route::middleware('authenticated')->group(function (){
 
 });
 
-Route::post('/login',[AuthController::class,'login']);
-Route::post('/register',[AuthController::class,'register']);
+Route::post('login',[AuthController::class,'login']);
+Route::post('register',[AuthController::class,'register']);
 
 
 

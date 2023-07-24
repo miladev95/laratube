@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\CommentStatus;
 use App\Enums\VideoStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -48,5 +49,10 @@ class Video extends Model
     public function scopeLikesCount($query)
     {
         return $query->withCount('likedByUsers');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

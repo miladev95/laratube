@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources\User;
 
+use App\Enums\CommentStatus;
+use App\Http\Resources\CommentResource;
 use App\Models\Video;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -23,10 +25,10 @@ class VideosResource extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'likes' => $likesCount,
+            'comments' => CommentResource::collection($this->comments()->where('status',CommentStatus::Show->getStringValue())->get()),
             'url' => $this->src,
-            'status' => $this->status,
             'user' => $this->user->email,
-            'created_at' => Carbon::parse($this->created_at)->format('Y-m-d'),
+            'created_at' => Carbon::parse($this->created_at)->format('Y-m-d h:m'),
         ];
     }
 }
