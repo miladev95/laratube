@@ -50,4 +50,21 @@ class AuthenticationTest extends TestCase
 
         $this->assertDatabaseMissing('users', ['email' => 'invalid_email']);
     }
+
+    public function test_user_logout()
+    {
+        $response = $this->post('/api/login', [
+            'email' => 'user@example.com',
+            'password' => '123'
+        ]);
+        $token = $response->baseResponse->getOriginalContent()["data"]["token"];
+
+        $response = $this->post('/api/logout',headers: [
+            'Authorization' => 'Bearer ' . $token,
+        ]);
+        
+        $response->assertStatus(200);
+
+        $this->assertDatabaseMissing('users', ['email' => 'invalid_email']);
+    }
 }
