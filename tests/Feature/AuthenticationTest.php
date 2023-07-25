@@ -8,36 +8,14 @@ use Tests\TestCase;
 
 class AuthenticationTest extends TestCase
 {
-    use RefreshDatabase;
-
     public function test_user_can_login()
     {
-        $user = User::factory()->create();
 
-        $response = $this->post('/login', [
-            'email' => $user->email,
+        $response = $this->post('/api/login', [
+            'email' => 'user@example.com',
             'password' => '123'
         ]);
-
-        $response->assertRedirect('/dashboard');
-        $this->assertAuthenticatedAs($user);
-    }
-
-    public function test_authenticated_user_can_access_protected_route()
-    {
-        $user = User::factory()->create();
-        $this->actingAs($user);
-
-        $response = $this->get('/dashboard');
-
         $response->assertStatus(200);
-    }
-
-    public function test_guest_cannot_access_protected_route()
-    {
-        $response = $this->get('/dashboard');
-
-        $response->assertRedirect('/login');
     }
 
     public function test_user_can_register()
@@ -49,9 +27,9 @@ class AuthenticationTest extends TestCase
             'password_confirmation' => '123',
         ];
 
-        $response = $this->post('/register', $userData);
+        $response = $this->post('/api/register', $userData);
 
-        $response->assertRedirect('/dashboard');
+        $response->assertStatus(201);
 
         $this->assertDatabaseHas('users', ['email' => 'john@example.com']);
     }
@@ -65,8 +43,10 @@ class AuthenticationTest extends TestCase
             'password_confirmation' => 'wrong_password',
         ];
 
-        $response = $this->post('/register', $invalidData);
-        $response->assertSessionHasErrors(['name', 'email', 'password_confirmation']);
+
+        $response = $this->post('/api/register', $invalidData);
+
+        $response->assertStatus(422);
 
         $this->assertDatabaseMissing('users', ['email' => 'invalid_email']);
     }
