@@ -10,11 +10,15 @@ use Tests\TestCase;
 
 class UserUploadVideoTest extends TestCase
 {
+    private string $token = '';
     protected function setUp(): void
     {
         parent::setUp();
-        // Disable Passport middleware for the test
-        $this->withoutMiddleware([Authenticated::class]);
+        $response = $this->post('/api/login', [
+            'email' => 'user@example.com',
+            'password' => '123'
+        ]);
+        $this->token = $response->baseResponse->getOriginalContent()["data"]["token"];
     }
 
     public function test_file_upload_success()
@@ -27,6 +31,8 @@ class UserUploadVideoTest extends TestCase
             'video' => $file,
             'title' => 'this is test video title',
             'description' => 'this is test video description'
+        ],headers: [
+            'Authorization' => 'Bearer ' . $this->token,
         ]);
 
         // Assert that the response is successful (HTTP status code 200)
@@ -36,7 +42,7 @@ class UserUploadVideoTest extends TestCase
         Storage::disk('public')->assertExists('videos/' . $file->hashName());
 
         // Assert that the success message is present in the response
-        $response->assertSee('Video uploaded successfully!');
+        $response->assertSee('Video uploaded successfully');
     }
 
     public function test_file_upload_failure_invalid_file()
@@ -45,15 +51,15 @@ class UserUploadVideoTest extends TestCase
         $invalidFile = UploadedFile::fake()->create('test_invalid.docx', 1000); // 1000 KB file size
 
         // Simulate the file upload request
-        $response = $this->post('/upload', [
+        $response = $this->post('/api/upload', [
             'video' => $invalidFile,
+            'title' => 'this is test video title',
+        ],headers: [
+            'Authorization' => 'Bearer ' . $this->token,
         ]);
 
-        // Assert that the response is not successful (HTTP status code 302 - redirect)
-        $response->assertStatus(302);
-
-        // Assert that the error message is present in the session
-        $this->assertSessionHasErrors('video');
+        // Assert that the response is not successful (HTTP status code 422 - Unprocessable Content)
+        $response->assertStatus(422);
 
         // Assert that the file is not stored in the expected location
         Storage::disk('public')->assertMissing('videos/' . $invalidFile->hashName());
