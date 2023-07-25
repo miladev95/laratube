@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CommentController as AdminCommentController;
+use App\Http\Controllers\Admin\NotificationController as AdminNotificationController;
 use App\Http\Controllers\Admin\VideoController as AdminVideoController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController as PublicCommentController;
@@ -33,6 +34,8 @@ Route::middleware('authenticated')->group(function (){
         Route::get('video/{video}/approve',[AdminVideoController::class,'approve']);
         Route::post('video/{video}/reject',[AdminVideoController::class,'reject']);
         Route::delete('comment/{comment}',[AdminCommentController::class,'destroy']);
+
+        Route::get('notifications',[AdminNotificationController::class,'index']);
     });
 
 
@@ -48,6 +51,8 @@ Route::middleware('authenticated')->group(function (){
 
     Route::get('video/{video}/like',[UserVideoController::class,'like']);
     Route::get('video/{video}/likes',[UserVideoController::class,'showLikes']);
+
+
 
 });
 
